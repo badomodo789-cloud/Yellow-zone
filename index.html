@@ -27,7 +27,7 @@ header{position:fixed;z-index:30;top:0;left:0;right:0;height:78px;padding:0 6%;d
 .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:#07172dcc;backdrop-filter:blur(7px)}.modal.show{display:flex}.modal-card{width:min(820px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:30px;box-shadow:0 30px 90px #0005;position:relative}.modal-top{padding:25px 30px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.modal-top h3{font-size:25px}.close{border:0;background:#f1f5fa;color:var(--ink);width:42px;height:42px;border-radius:50%;font-size:23px}.selected-service{margin:20px 30px 0;background:linear-gradient(135deg,#edf5ff,#fff8c7);border:1px solid #dbe8f7;border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:15px}.selected-service b{font-size:18px}.selected-service span{display:block;color:var(--muted);font-size:12px}.modal-form{padding:22px 30px 30px}.modal-form .submit{margin-top:3px}.date-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}.date-chip{border:1px solid var(--line);background:#fff;padding:6px 9px;border-radius:9px;font-size:11px;color:var(--muted)}
 .toast{position:fixed;z-index:150;left:20px;bottom:20px;max-width:390px;background:#10223e;color:#fff;padding:14px 17px;border-radius:13px;box-shadow:0 15px 40px #0004;display:none}.toast.show{display:block}.toast.success{background:#0d7651}.toast.error{background:#a83232}
 footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{font-size:24px;font-weight:900;direction:ltr}.flogo b{color:var(--yellow)}.flogo span{color:#fff}footer p{color:#8797ad;margin:8px 0 18px}.socials{display:flex;justify-content:center;gap:22px;color:#9fc4ff;font-size:13px}
-@media(max-width:950px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:115px}.hero-copy{text-align:center;margin:auto}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-media{max-width:650px;width:100%;margin:auto}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.birthday-grid{grid-template-columns:1fr}.birthday.main{transform:none}.booking-box{grid-template-columns:1fr}.videos,.ads-grid,.offer-grid{grid-template-columns:1fr 1fr}}
+.dynamic-empty{grid-column:1/-1;text-align:center;padding:30px;color:var(--muted);border:1px dashed var(--line);border-radius:18px}.offer-card.no-image{padding:0}.offer-card.no-image .offer-body{min-height:180px}.gallery-grid .dynamic-gallery{position:relative;overflow:hidden;border-radius:22px;background:#dfeeff;min-height:220px}.gallery-grid .dynamic-gallery:first-child{grid-row:span 2}.gallery-grid .dynamic-gallery img{width:100%;height:100%;min-height:220px;object-fit:cover;display:block}.gallery-grid .dynamic-gallery:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0009)}.gallery-grid .dynamic-gallery span{position:absolute;z-index:2;bottom:15px;right:18px;color:#fff;font-weight:800}.gallery-grid .dynamic-gallery:nth-child(n+6){grid-row:auto}@media(max-width:950px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:115px}.hero-copy{text-align:center;margin:auto}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-media{max-width:650px;width:100%;margin:auto}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.birthday-grid{grid-template-columns:1fr}.birthday.main{transform:none}.booking-box{grid-template-columns:1fr}.videos,.ads-grid,.offer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.req-list{padding-right:18px}.contact-cta{padding:17px}.wa-btn{width:100%}header{padding:0 18px}.hero{padding-left:20px;padding-right:20px}.hero h1{font-size:43px}.actions{flex-direction:column}.hero-media{height:370px}.f1{right:5px}.f2{left:5px}.features{grid-template-columns:1fr}.feature{border:0;border-bottom:1px solid #edf1f6}.price-grid,.offer-grid,.ads-grid,.videos{grid-template-columns:1fr}.section{padding:70px 20px}.head h2{font-size:31px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px}.g:first-child{grid-row:span 2}.booking-box{padding:25px}.modal-card{border-radius:22px}.modal-top,.modal-form{padding-left:20px;padding-right:20px}.selected-service{margin-left:20px;margin-right:20px}form{grid-template-columns:1fr}.full,.submit{grid-column:auto}.booking-preview{margin-top:15px}}
 </style>
 </head>
@@ -70,21 +70,12 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
 
 <section class="section prices" id="prices">
   <div class="head"><span class="label" data-ar="الأسعار" data-en="Prices">الأسعار</span><h2 data-ar="اختار التجربة المناسبة لك" data-en="Choose the experience that suits you">اختار التجربة المناسبة لك</h2><p data-ar="أسعار واضحة وبسيطة بدون تعقيد." data-en="Clear and simple prices, with no complications.">أسعار واضحة وبسيطة بدون تعقيد.</p></div>
-  <div class="price-grid">
-    <div class="card"><div class="icon">♾️</div><h3 data-ar="وقت مفتوح" data-en="Open Time">وقت مفتوح</h3><div class="price">75 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="استمتع بوقتك بدون تحديد مدة." data-en="Enjoy your time with no time limit.">استمتع بوقتك بدون تحديد مدة.</p><button type="button" onclick="openBooking('open')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
-    <div class="card featured"><div class="popular" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div><div class="icon">⭐</div><h3 data-ar="ساعتان" data-en="2 Hours">ساعتان</h3><div class="price">60 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="ساعتان كاملة من اللعب والمتعة." data-en="Two full hours of play and fun.">ساعتان كاملة من اللعب والمتعة.</p><button type="button" onclick="openBooking('two-hours')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
-    <div class="card"><div class="icon">⏱️</div><h3 data-ar="ساعة" data-en="1 Hour">ساعة</h3><div class="price">45 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="ساعة كاملة من اللعب." data-en="One full hour of play.">ساعة كاملة من اللعب.</p><button type="button" onclick="openBooking('one-hour')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
-    <div class="card"><div class="icon">➕</div><h3 data-ar="تجديد ساعة" data-en="Hour Extension">تجديد ساعة</h3><div class="price">20 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="أضف ساعة إضافية لوقت اللعب." data-en="Add an extra hour to your play time.">أضف ساعة إضافية لوقت اللعب.</p><button type="button" onclick="openBooking('extension')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
-  </div>
+  <div class="price-grid" id="generalPrices"><div class="empty-ads" style="display:block">جاري تحميل الأسعار...</div></div>
 </section>
 
 <section class="section offers" id="offers">
   <div class="head"><span class="label" data-ar="العروض والباقات" data-en="Offers & Packages">العروض والباقات</span><h2 data-ar="اختار اللي يناسبك" data-en="Choose what suits you">اختار اللي يناسبك</h2><p data-ar="تجارب متنوعة بأسعار واضحة، وكل باقة لها أجواؤها." data-en="Different experiences with clear prices, each with its own atmosphere.">تجارب متنوعة بأسعار واضحة، وكل باقة لها أجواؤها.</p></div>
-  <div class="offer-grid">
-    <article class="offer-card"><img src="assets/images/yellow-zone-08.jpg" alt="أجواء الألعاب في Yellow Zone"><div class="offer-body"><span data-ar="لعب ومرح" data-en="Play & Fun">لعب ومرح</span><h3 data-ar="وقت مفتوح" data-en="Open Time">وقت مفتوح</h3><strong data-ar="75 ريال" data-en="75 SAR">75 ريال</strong><p data-ar="استمتع بوقتك بدون تحديد مدة." data-en="Enjoy your time with no time limit.">استمتع بوقتك بدون تحديد مدة.</p><button type="button" onclick="openBooking('open')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
-    <article class="offer-card featured-offer"><img src="assets/images/yellow-zone-04.jpg" alt="أجواء اللعب في Yellow Zone"><div class="offer-body"><span data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</span><h3 data-ar="ساعتان" data-en="2 Hours">ساعتان</h3><strong data-ar="60 ريال" data-en="60 SAR">60 ريال</strong><p data-ar="ساعتان كاملة من اللعب والمتعة." data-en="Two full hours of play and fun.">ساعتان كاملة من اللعب والمتعة.</p><button type="button" onclick="openBooking('two-hours')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
-    <article class="offer-card"><img src="assets/images/yellow-zone-15.png" alt="رحلة مدرسية في Yellow Zone"><div class="offer-body"><span data-ar="للمجموعات" data-en="For Groups">للمجموعات</span><h3 data-ar="رحلة مدرسية" data-en="School Trip">رحلة مدرسية</h3><strong data-ar="60 ريال للطفل" data-en="60 SAR per child">60 ريال للطفل</strong><p data-ar="تشمل وجبة مجانية." data-en="Includes a complimentary meal.">تشمل وجبة مجانية.</p><button type="button" onclick="openBooking('school-trip')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
-  </div>
+  <div class="offer-grid" id="offersGrid"><div class="empty-ads" style="display:block">جاري تحميل الباقات...</div></div>
   <div class="ads-wrap" id="adsWrap">
     <div class="head" style="margin-top:65px;margin-bottom:28px"><span class="label" data-ar="إعلانات وفعاليات" data-en="Announcements & Events">إعلانات وفعاليات</span><h2 data-ar="آخر الفعاليات والعروض" data-en="Latest events & announcements">آخر الفعاليات والعروض</h2><p data-ar="أي فعالية أو حفلة ينزلها فريق Yellow Zone تظهر هنا، ومعها زر حجز مباشر إذا كانت فعالية قابلة للحجز." data-en="Events and parties posted by Yellow Zone appear here, with a direct booking button when the announcement is bookable.">أي فعالية أو حفلة ينزلها فريق Yellow Zone تظهر هنا، ومعها زر حجز مباشر إذا كانت فعالية قابلة للحجز.</p></div>
     <div class="ads-grid" id="adsGrid"></div><div class="empty-ads" id="emptyAds" data-ar="لا توجد إعلانات أو فعاليات حالياً." data-en="There are no announcements or events right now.">لا توجد إعلانات أو فعاليات حالياً.</div>
@@ -93,16 +84,12 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
 
 <section class="section split" id="trips">
   <div class="photo"><img src="assets/images/yellow-zone-15.png" alt="رحلات مدرسية في Yellow Zone"><div class="photo-tag" data-ar="🏫 رحلات مدرسية" data-en="🏫 School Trips">🏫 رحلات مدرسية</div></div>
-  <div><span class="label" data-ar="للمدارس والمجموعات" data-en="For Schools & Groups">للمدارس والمجموعات</span><h2 data-ar="خلّي الرحلة المدرسية يوم ما يتنسي" data-en="Make the school trip a day to remember">خلّي الرحلة المدرسية يوم ما يتنسي</h2><p data-ar="تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية." data-en="An experience full of play, fun, and activities suitable for students and school groups.">تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية.</p><div class="trip-price">60 <small data-ar="ريال للطفل" data-en="SAR per child">ريال للطفل</small></div><p data-ar="✓ تشمل وجبة مجانية" data-en="✓ Includes a complimentary meal">✓ تشمل وجبة مجانية</p><div class="actions"><button class="btn primary" type="button" onclick="openBooking('school-trip')" data-ar="احجز رحلة مدرسية" data-en="Book a School Trip">احجز رحلة مدرسية</button><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/966554160210" data-ar="تواصل معنا عبر واتساب" data-en="Contact us on WhatsApp">تواصل معنا عبر واتساب</a></div></div>
+  <div><span class="label" data-ar="للمدارس والمجموعات" data-en="For Schools & Groups">للمدارس والمجموعات</span><h2 data-ar="خلّي الرحلة المدرسية يوم ما يتنسي" data-en="Make the school trip a day to remember">خلّي الرحلة المدرسية يوم ما يتنسي</h2><p data-ar="تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية." data-en="An experience full of play, fun, and activities suitable for students and school groups.">تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية.</p><div class="trip-price" id="tripPrice">60 <small data-ar="ريال للطفل" data-en="SAR per child">ريال للطفل</small></div><p data-ar="✓ تشمل وجبة مجانية" data-en="✓ Includes a complimentary meal">✓ تشمل وجبة مجانية</p><div class="actions"><button class="btn primary" type="button" onclick="openBooking('school-trip')" data-ar="احجز رحلة مدرسية" data-en="Book a School Trip">احجز رحلة مدرسية</button><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/966554160210" data-ar="تواصل معنا عبر واتساب" data-en="Contact us on WhatsApp">تواصل معنا عبر واتساب</a></div></div>
 </section>
 
 <section class="section birthdays" id="birthdays">
   <div class="head"><span class="label" data-ar="أعياد الميلاد والحفلات" data-en="Birthdays & Parties">أعياد الميلاد والحفلات</span><h2 data-ar="يوم ميلادك يستاهل احتفال كبير" data-en="Your birthday deserves a big celebration">يوم ميلادك يستاهل احتفال كبير</h2><p data-ar="اختر الباقة المناسبة وأضف الإضافات اللي تناسب حفلتك." data-en="Choose the package that suits you and add the extras for your party.">اختر الباقة المناسبة وأضف الإضافات اللي تناسب حفلتك.</p></div>
-  <div class="birthday-grid">
-    <div class="birthday"><div class="kids">10</div><h3 data-ar="10 أطفال" data-en="10 Kids">10 أطفال</h3><div class="birthday-price" data-ar="1350 ريال" data-en="1350 SAR">1350 ريال</div><button type="button" onclick="openBooking('birthday-10')" data-ar="احجز الباقة" data-en="Book Package">احجز الباقة</button></div>
-    <div class="birthday main"><div class="kids">15</div><h3 data-ar="15 طفل" data-en="15 Kids">15 طفل</h3><div class="birthday-price" data-ar="1800 ريال" data-en="1800 SAR">1800 ريال</div><button type="button" onclick="openBooking('birthday-15')" data-ar="احجز الباقة" data-en="Book Package">احجز الباقة</button></div>
-    <div class="birthday extras"><h3 data-ar="إضافات الحفلة" data-en="Party Extras">إضافات الحفلة</h3><div class="extra"><span data-ar="طفل إضافي" data-en="Additional Child">طفل إضافي</span><strong data-ar="90 ريال" data-en="90 SAR">90 ريال</strong></div><div class="extra"><span data-ar="عرض الساحر" data-en="Magician Show">عرض الساحر</span><strong data-ar="300 ريال" data-en="300 SAR">300 ريال</strong></div><div class="extra"><span data-ar="رسم على الوجه" data-en="Face Painting">رسم على الوجه</span><strong data-ar="10 ريال" data-en="10 SAR">10 ريال</strong></div></div>
-  </div>
+  <div class="birthday-grid" id="birthdayGrid"><div class="empty-ads" style="display:block">جاري تحميل باقات أعياد الميلاد...</div></div>
   <div class="contact-cta">
     <h3 data-ar="متطلبات أعياد الميلاد" data-en="Birthday Party Requirements">متطلبات أعياد الميلاد</h3>
     <p data-ar="بعد اختيار الباقة، أرسل لنا متطلبات الحفلة وتفاصيلها على واتساب حتى يقدر الفريق ينسق معك." data-en="After choosing your package, send your party requirements and details to us on WhatsApp so our team can coordinate with you.">بعد اختيار الباقة، أرسل لنا متطلبات الحفلة وتفاصيلها على واتساب حتى يقدر الفريق ينسق معك.</p>
@@ -118,9 +105,7 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
 
 <section class="section" id="gallery">
   <div class="head"><span class="label" data-ar="المعرض" data-en="Gallery">المعرض</span><h2 data-ar="شوف أجواء Yellow Zone" data-en="See the Yellow Zone atmosphere">شوف أجواء Yellow Zone</h2><p data-ar="صور حقيقية من المكان والألعاب والفعاليات والحفلات." data-en="Real photos from the venue, games, activities, and parties.">صور حقيقية من المكان والألعاب والفعاليات والحفلات.</p></div>
-  <div class="gallery-grid">
-    <div class="g"><img src="assets/images/yellow-zone-07.jpg" alt="منطقة اللعب"><span data-ar="أجواء المكان" data-en="Venue Atmosphere">أجواء المكان</span></div><div class="g"><img src="assets/images/yellow-zone-01.jpg" alt="الألعاب"><span data-ar="اللعب والمرح" data-en="Play & Fun">اللعب والمرح</span></div><div class="g"><img src="assets/images/yellow-zone-11.jpg" alt="فعالية عيد ميلاد"><span data-ar="أعياد الميلاد" data-en="Birthdays">أعياد الميلاد</span></div><div class="g"><img src="assets/images/yellow-zone-03.jpg" alt="منطقة الألعاب"><span data-ar="منطقة الألعاب" data-en="Play Area">منطقة الألعاب</span></div><div class="g"><img src="assets/images/yellow-zone-04.jpg" alt="الفعاليات"><span data-ar="الفعاليات" data-en="Activities">الفعاليات</span></div><div class="g"><img src="assets/images/yellow-zone-02.jpg" alt="أجواء Yellow Zone"><span data-ar="أجواء Yellow Zone" data-en="Yellow Zone Atmosphere">أجواء Yellow Zone</span></div><div class="g"><img src="assets/images/yellow-zone-06.jpg" alt="تفاصيل المكان"><span data-ar="تفاصيل المكان" data-en="Venue Details">تفاصيل المكان</span></div><div class="g"><img src="assets/images/yellow-zone-10.jpg" alt="منطقة اللعب"><span data-ar="منطقة اللعب" data-en="Play Zone">منطقة اللعب</span></div><div class="g"><img src="assets/images/yellow-zone-14.png" alt="فعالية داخل المركز"><span data-ar="فعاليات المركز" data-en="Center Activities">فعاليات المركز</span></div><div class="g"><img src="assets/images/yellow-zone-15.png" alt="رحلة مدرسية"><span data-ar="رحلات مدرسية" data-en="School Trips">رحلات مدرسية</span></div>
-  </div>
+  <div class="gallery-grid" id="galleryGrid"><div class="empty-ads" style="display:block">جاري تحميل المعرض...</div></div>
 </section>
 
 <section class="section video-section">
@@ -168,7 +153,10 @@ const form=document.getElementById('bookingForm');
 let currentLang=localStorage.getItem('yellow-zone-language')||'ar';
 let selectedKey='open';
 let dynamicEvents={};
-const services={
+let offersCache=[];
+let galleryCache=[];
+const services={};
+const staticFallback={
  open:{ar:'وقت مفتوح',en:'Open Time',price:'75 SAR'},
  'two-hours':{ar:'ساعتان',en:'2 Hours',price:'60 SAR'},
  'one-hour':{ar:'ساعة',en:'1 Hour',price:'45 SAR'},
@@ -177,6 +165,9 @@ const services={
  'birthday-10':{ar:'عيد ميلاد - 10 أطفال',en:'Birthday - 10 Kids',price:'1350 SAR'},
  'birthday-15':{ar:'عيد ميلاد - 15 طفل',en:'Birthday - 15 Kids',price:'1800 SAR'}
 };
+const offerIcon=category=>category==='birthdays'?'🎂':category==='trips'?'🏫':'⭐';
+const slugForOffer=o=>{const n=(o.name_ar||o.name_en||'').toLowerCase();if(o.category==='general'){if(n.includes('مفتوح')||n.includes('open'))return 'open';if(n.includes('ساعتان')||n.includes('two hours'))return 'two-hours';if(n==='ساعة'||n.includes('one hour'))return 'one-hour';if(n.includes('تجديد')||n.includes('extension')||n.includes('renew'))return 'extension'}if(o.category==='trips')return 'school-trip';if(o.category==='birthdays'){if(n.includes('10'))return 'birthday-10';if(n.includes('15'))return 'birthday-15'}return 'offer-'+o.id};
+const money=v=>{const n=Number(v);return Number.isFinite(n)?(Number.isInteger(n)?String(n):n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'')):String(v||'')};
 const today=new Date();
 today.setHours(0,0,0,0);
 const isoToday=()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)};
@@ -203,7 +194,8 @@ function applyLanguage(language){
  localStorage.setItem('yellow-zone-language',language);
  renderServiceOptions();
  if(modal.classList.contains('show')) updateSelectedService();
- renderAds();
+ if(offersCache.length){renderGeneralPrices();renderOffers();renderTrips();renderBirthdays();}
+ renderAds();renderGallery();
 }
 function toggleLang(){applyLanguage(currentLang==='ar'?'en':'ar')}
 langButton.addEventListener('click',toggleLang);
@@ -211,19 +203,16 @@ langButton.addEventListener('click',toggleLang);
 authorizeServiceOptions();
 function authorizeServiceOptions(){renderServiceOptions()}
 function renderServiceOptions(){
- const keys=Object.keys(services).concat(Object.keys(dynamicEvents));
+ const all={...services,...dynamicEvents};
  serviceSelect.innerHTML='';
- keys.forEach(key=>{
-  const s=services[key]||dynamicEvents[key];
-  const o=document.createElement('option');o.value=key;o.textContent=s[currentLang]||s.ar;o.dataset.dynamic=dynamicEvents[key]?'1':'0';serviceSelect.appendChild(o);
- });
- if(!services[selectedKey]&&!dynamicEvents[selectedKey])selectedKey='open';
+ Object.keys(all).forEach(key=>{const sv=all[key];const o=document.createElement('option');o.value=key;o.textContent=sv[currentLang]||sv.ar||sv.en;o.dataset.dynamic=dynamicEvents[key]?'1':'0';serviceSelect.appendChild(o)});
+ if(!all[selectedKey]) selectedKey=Object.keys(all)[0]||'open';
  serviceSelect.value=selectedKey;
 }
 function updateSelectedService(){
- const s=services[selectedKey]||dynamicEvents[selectedKey]||services.open;
- document.getElementById('selectedServiceName').textContent=s[currentLang]||s.ar;
- document.getElementById('selectedServiceMeta').textContent=s.price||'';
+ const sv=services[selectedKey]||dynamicEvents[selectedKey]||staticFallback[selectedKey]||staticFallback.open;
+ document.getElementById('selectedServiceName').textContent=sv[currentLang]||sv.ar||sv.en;
+ document.getElementById('selectedServiceMeta').textContent=sv.price||'';
  serviceSelect.value=selectedKey;
 }
 serviceSelect.addEventListener('change',()=>{selectedKey=serviceSelect.value;updateSelectedService()});
@@ -254,7 +243,7 @@ form.addEventListener('submit',async e=>{
  if(!form.reportValidity())return;
  const btn=form.querySelector('.submit');btn.disabled=true;btn.textContent=currentLang==='ar'?'جاري إرسال الطلب...':'Sending request...';
  const name=document.getElementById('name').value.trim();const phone=document.getElementById('phone').value.trim();const guests=Number(document.getElementById('guests').value);const date=dateInput.value;const notes=document.getElementById('notes').value.trim();const s=services[selectedKey]||dynamicEvents[selectedKey]||services.open;const service=s[currentLang]||s.ar;
- const data={booking_code:'YZ-'+Date.now(),customer_name:name,customer_phone:phone,booking_date:date,guests,offer_name_snapshot:service,service_type:service,notes,status:'new'};
+ const offer=offersCache.find(o=>slugForOffer(o)===selectedKey); const data={booking_code:'YZ-'+Date.now(),customer_name:name,customer_phone:phone,booking_date:date,guests,offer_id:offer?.id||null,price_snapshot:offer?.price??null,offer_name_snapshot:service,service_type:service,notes,status:'new'};
  try{await sendBooking(data);toast(currentLang==='ar'?'تم إرسال طلب الحجز بنجاح. سيتم التواصل معك لتأكيد الحجز.':'Your booking request was sent successfully. We will contact you to confirm it.','success');form.reset();dateInput.min=isoToday();selectedKey='open';renderServiceOptions();updateSelectedService();setTimeout(closeBooking,900)}catch(err){console.error(err);toast(currentLang==='ar'?'تعذر إرسال الحجز حالياً. تواصل معنا عبر واتساب على +966 55 416 0210.':'The booking could not be sent right now. Please contact us on WhatsApp at +966 55 416 0210.','error')}finally{btn.disabled=false;btn.textContent=btn.getAttribute('data-'+currentLang)}
 });
 
@@ -270,7 +259,24 @@ function renderAds(){
 async function loadAds(){
  try{const r=await fetch(SUPABASE_URL+'/rest/v1/ads?select=id,title,text,image_url,active,title_ar,title_en,body_ar,body_en,target_url,sort_order&active=eq.true&order=sort_order.asc,created_at.desc',{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});if(!r.ok)throw new Error('ads '+r.status);window.activeAds=await r.json();renderAds()}catch(e){console.error(e);window.activeAds=[];renderAds()}
 }
-applyLanguage(currentLang);loadAds();
+async function loadOffers(){
+ try{const r=await fetch(SUPABASE_URL+'/rest/v1/offers?select=id,name_ar,name_en,description_ar,description_en,price,active,category,sort_order,image_url&active=eq.true&order=sort_order.asc,id.asc',{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});if(!r.ok)throw new Error('offers '+r.status);offersCache=await r.json();applyOffersToSite();}catch(e){console.error(e);offersCache=[];applyOffersToSite();toast(currentLang==='ar'?'تعذر تحميل الأسعار حالياً.':'Could not load prices right now.','error')}}
+function applyOffersToSite(){
+ Object.keys(services).forEach(k=>delete services[k]);
+ const bySlug={}; offersCache.forEach(o=>{const key=slugForOffer(o);const item={id:o.id,ar:o.name_ar||o.name_en||'',en:o.name_en||o.name_ar||'',price:money(o.price)+' SAR',rawPrice:o.price,description_ar:o.description_ar||'',description_en:o.description_en||'',category:o.category||''}; if(!bySlug[key])bySlug[key]=item; else if(Number(o.sort_order)<Number(bySlug[key].sort_order||999))bySlug[key]=item; services[key]=item;});
+ if(!Object.keys(services).length)Object.assign(services,staticFallback);
+ renderGeneralPrices();renderOffers();renderTrips();renderBirthdays();renderServiceOptions();updateSelectedService();renderAds();
+}
+function priceText(o){const n=money(o.price);return o.category==='trips'?n+' '+(currentLang==='ar'?'ريال للطفل':'SAR per child'):n+' '+(currentLang==='ar'?'ريال':'SAR')}
+function renderGeneralPrices(){const box=document.getElementById('generalPrices');const arr=offersCache.filter(o=>o.category==='general');box.innerHTML=arr.length?arr.map((o,i)=>{const key=slugForOffer(o);return `<div class="card ${i===1?'featured':''}"><div class="icon">${offerIcon(o.category)}</div><h3>${escapeHTML(currentLang==='ar'?o.name_ar:o.name_en)}</h3><div class="price">${money(o.price)} <small>${currentLang==='ar'?'ريال':'SAR'}</small></div><p>${escapeHTML(currentLang==='ar'?(o.description_ar||''): (o.description_en||''))}</p><button type="button" data-book="${escapeHTML(key)}">${currentLang==='ar'?'احجز الآن':'Book Now'}</button></div>`}).join(''):'<div class="dynamic-empty">'+(currentLang==='ar'?'لا توجد أسعار متاحة حالياً.':'No prices are currently available.')+'</div>';box.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',()=>openBooking(b.dataset.book)));}
+function renderOffers(){const box=document.getElementById('offersGrid');const arr=offersCache;box.innerHTML=arr.length?arr.map((o,i)=>{const key=slugForOffer(o);const cat=o.category==='birthdays'?(currentLang==='ar'?'أعياد الميلاد':'Birthdays'):o.category==='trips'?(currentLang==='ar'?'للمجموعات':'For Groups'):(currentLang==='ar'?'لعب ومرح':'Play & Fun');return `<article class="offer-card no-image ${i===1?'featured-offer':''}"><div class="offer-body"><span>${cat}</span><h3>${escapeHTML(currentLang==='ar'?o.name_ar:o.name_en)}</h3><strong>${priceText(o)}</strong><p>${escapeHTML(currentLang==='ar'?(o.description_ar||''):(o.description_en||''))}</p><button type="button" data-book="${escapeHTML(key)}">${currentLang==='ar'?'احجز الآن':'Book Now'}</button></div></article>`}).join(''):'<div class="dynamic-empty">'+(currentLang==='ar'?'لا توجد باقات متاحة حالياً.':'No packages are currently available.')+'</div>';box.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',()=>openBooking(b.dataset.book)));}
+function renderTrips(){const o=offersCache.find(x=>x.category==='trips'&&x.active);if(!o)return;document.getElementById('tripPrice').innerHTML=priceText(o).replace('ريال للطفل','<small>ريال للطفل</small>').replace('SAR per child','<small>SAR per child</small>');}
+function renderBirthdays(){const box=document.getElementById('birthdayGrid');const arr=offersCache.filter(o=>o.category==='birthdays');box.innerHTML=arr.length?arr.map((o,i)=>{const key=slugForOffer(o);const name=currentLang==='ar'?o.name_ar:o.name_en;return `<div class="birthday ${i===1?'main':''} ${!String(name).match(/10|15|10 Kids|15 Kids/i)?'extras':''}"><div class="kids">${String(name).match(/10|15/)?.[0]||'+'}</div><h3>${escapeHTML(name)}</h3><div class="birthday-price">${priceText(o)}</div><p>${escapeHTML(currentLang==='ar'?(o.description_ar||''):(o.description_en||''))}</p><button type="button" onclick="openBooking('${escapeHTML(key)}')">${currentLang==='ar'?'احجز الباقة':'Book Package'}</button></div>`}).join(''):'<div class="dynamic-empty">'+(currentLang==='ar'?'لا توجد باقات أعياد ميلاد متاحة حالياً.':'No birthday packages are currently available.')+'</div>';}
+async function loadGallery(){
+ try{const r=await fetch(SUPABASE_URL+'/rest/v1/gallery?select=id,title_ar,title_en,image_url,active,sort_order&active=eq.true&order=sort_order.asc,created_at.asc',{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});if(!r.ok)throw new Error('gallery '+r.status);galleryCache=await r.json();renderGallery();}catch(e){console.error(e);renderGallery([])}
+}
+function renderGallery(){const box=document.getElementById('galleryGrid');const arr=galleryCache||[];box.innerHTML=arr.length?arr.map(g=>`<div class="dynamic-gallery"><img src="${escapeHTML(g.image_url)}" alt="${escapeHTML(currentLang==='ar'?(g.title_ar||'Yellow Zone'):(g.title_en||'Yellow Zone'))}"><span>${escapeHTML(currentLang==='ar'?(g.title_ar||'Yellow Zone'):(g.title_en||'Yellow Zone'))}</span></div>`).join(''):'<div class="dynamic-empty">'+(currentLang==='ar'?'لا توجد صور في المعرض حالياً.':'No gallery images are available.')+'</div>';}
+applyLanguage(currentLang);Promise.all([loadOffers(),loadAds(),loadGallery()]);
 </script>
 </body>
 </html>
