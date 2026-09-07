@@ -1,22 +1,155 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Yellow Zone - مركز ترفيهي للأطفال والعائلات في الرياض">
-<title>Yellow Zone | المنطقة الترفيهية</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap">
-<link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yellow Zone | المنطقة الصفراء</title>
+<meta name="description" content="Yellow Zone - ألعاب وفعاليات وأعياد ميلاد ورحلات مدرسية">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{--blue:#1267df;--blue2:#0a4fae;--yellow:#ffd400;--ink:#13233d;--muted:#718096;--bg:#f5f9ff;--line:#e5ecf5;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Cairo,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{position:fixed;z-index:20;top:0;left:0;right:0;height:78px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.logo{font-size:22px;font-weight:900;direction:ltr}.logo b{color:var(--yellow)}.logo span{color:var(--blue)}.logo i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--yellow);margin:0 5px}
+nav{display:flex;gap:25px}nav a{font-size:13px;font-weight:800;color:#45546a}nav a:hover{color:var(--blue)}.lang{border:1px solid var(--blue);background:#fff;color:var(--blue);padding:8px 16px;border-radius:30px;font-weight:800}
+.hero{padding:130px 7% 75px;min-height:720px;display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;background:radial-gradient(circle at 88% 8%,#fff0a2,transparent 25%),radial-gradient(circle at 5% 90%,#dceeff,transparent 30%),#f8fbff}.hero-copy{max-width:650px}.badge{display:inline-block;background:#fff2ae;color:#755f00;border-radius:30px;padding:8px 16px;font-size:13px;font-weight:800;margin-bottom:18px}.hero h1{font-size:clamp(43px,6vw,76px);line-height:1.12;margin-bottom:22px;font-weight:900}.hero h1 span{color:var(--blue);display:block}.hero p{color:var(--muted);font-size:18px;line-height:2;margin-bottom:30px}.actions{display:flex;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:12px;font-weight:900}.primary{background:var(--blue);color:#fff;box-shadow:0 14px 30px #1267df30}.secondary{background:#fff;color:var(--blue);border:1px solid var(--line)}
+.hero-media{position:relative;height:500px}.hero-media img{width:100%;height:100%;object-fit:cover;border-radius:36px;box-shadow:0 30px 70px #16447725}.hero-media:after{content:"";position:absolute;inset:auto 22px 22px 22px;height:35%;border-radius:22px;background:linear-gradient(transparent,#06172bcc)}.hero-caption{position:absolute;z-index:2;bottom:38px;right:35px;color:#fff}.hero-caption strong{display:block;font-size:23px}.hero-caption small{color:#dce8f8}.float{position:absolute;z-index:3;background:#fff;padding:14px 19px;border-radius:18px;box-shadow:0 18px 45px #183b6520}.f1{top:25px;right:-24px}.f2{bottom:25px;left:-24px}.float b{display:block;font-size:27px;color:var(--blue)}.float small{color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-bottom:1px solid var(--line);padding:32px 7%}.feature{text-align:center;padding:10px 18px;border-left:1px solid #edf1f6}.feature:last-child{border:0}.fi{width:56px;height:56px;display:grid;place-items:center;background:#edf5ff;border-radius:17px;margin:auto auto 10px;font-size:26px}.feature h3{font-size:16px}.feature p{font-size:12px;color:#8793a5}
+.section{padding:95px 7%}.head{text-align:center;max-width:720px;margin:0 auto 45px}.label{color:var(--blue);font-size:13px;font-weight:900}.head h2{font-size:40px;line-height:1.35;margin:7px 0}.head p{color:var(--muted)}
+.prices{background:#f6faff}.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 23px;text-align:center;transition:.25s}.card:hover{transform:translateY(-7px);box-shadow:0 22px 45px #17487c18}.card.featured{border:2px solid var(--blue);position:relative}.popular{position:absolute;top:-13px;right:50%;transform:translateX(50%);background:var(--blue);color:#fff;border-radius:30px;padding:4px 15px;font-size:11px;font-weight:800}.icon{width:60px;height:60px;display:grid;place-items:center;margin:auto auto 13px;background:#edf5ff;border-radius:18px;font-size:27px}.card h3{font-size:18px}.price{font-size:41px;color:var(--blue);font-weight:900;margin:7px 0}.price small{font-size:13px;color:var(--muted)}.card p{font-size:12px;color:#8390a3;min-height:44px}.card button{width:100%;margin-top:18px;border:0;background:var(--blue);color:#fff;padding:11px;border-radius:10px;font-weight:800}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;background:#fff}.photo{position:relative;height:500px}.photo img{width:100%;height:100%;object-fit:cover;border-radius:34px}.photo-tag{position:absolute;bottom:22px;right:22px;background:#fff;border-radius:16px;padding:12px 18px;box-shadow:0 15px 35px #173b611c;font-weight:800}.split h2{font-size:45px;line-height:1.3;margin:8px 0 17px}.split p{color:var(--muted);line-height:2;margin-bottom:20px}.trip-price{font-size:39px;font-weight:900;color:var(--blue);margin-bottom:15px}.trip-price small{font-size:14px;color:var(--muted)}
+.birthdays{background:#f5f9ff}.birthday-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}.birthday{background:#fff;border:1px solid var(--line);border-radius:25px;padding:30px;text-align:center}.birthday.main{background:var(--blue);color:#fff;border:0;transform:translateY(-8px)}.kids{font-size:62px;line-height:1;font-weight:900;color:var(--yellow)}.birthday-price{font-size:29px;font-weight:900;margin:9px 0}.birthday button{width:100%;border:0;border-radius:10px;padding:12px;background:var(--blue);color:#fff;font-weight:800}.birthday.main button{background:#fff;color:var(--blue)}.extras{text-align:right}.extra{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}.extra strong{color:var(--blue)}
+.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:15px}.g{position:relative;overflow:hidden;border-radius:22px;background:#dfeeff}.g:first-child{grid-row:span 2}.g img{width:100%;height:100%;object-fit:cover;transition:.35s}.g:hover img{transform:scale(1.05)}.g:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0009)}.g span{position:absolute;z-index:2;bottom:15px;right:18px;color:#fff;font-weight:800}
+
+.offers{background:#fff}.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.offer-card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 15px 45px #19487812;transition:.25s}.offer-card:hover{transform:translateY(-6px);box-shadow:0 22px 55px #1948781c}.offer-card img{width:100%;height:230px;object-fit:cover;display:block}.offer-body{padding:22px}.offer-body span{font-size:11px;font-weight:900;color:var(--blue)}.offer-body h3{font-size:22px;margin:7px 0}.offer-body strong{font-size:27px;color:var(--blue);display:block;margin-bottom:7px}.offer-body p{font-size:13px;color:var(--muted);min-height:42px}.offer-body button{width:100%;border:0;background:var(--blue);color:#fff;padding:12px;border-radius:11px;font-weight:900}.featured-offer{border:2px solid var(--blue)}
+.video-section{background:#10223e;color:#fff}.head.dark p{color:#9cabc0}.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.video{background:#07172d;border-radius:20px;overflow:hidden}.video video{display:block;width:100%;height:220px;object-fit:cover}.video p{padding:12px 15px;font-weight:800;font-size:13px}
+.booking{background:#f5f9ff}.booking-box{max-width:1100px;margin:auto;background:#fff;border-radius:30px;padding:48px;display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;box-shadow:0 20px 60px #19487812}.booking-info h2{font-size:40px;line-height:1.3;margin:7px 0 15px}.booking-info p{color:var(--muted);line-height:2}.contact{margin-top:25px;display:grid;gap:9px;font-weight:800}.contact a{color:var(--blue)}form{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{font-size:12px;font-weight:800;display:grid;gap:6px}input,select,textarea{border:1px solid #dce5f0;border-radius:10px;padding:12px;outline:0;width:100%}input:focus,select:focus,textarea:focus{border-color:var(--blue)}textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.submit{grid-column:1/-1;border:0;background:var(--blue);color:#fff;border-radius:11px;padding:14px;font-weight:900}
+footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{font-size:24px;font-weight:900;direction:ltr}.flogo b{color:var(--yellow)}.flogo span{color:#fff}footer p{color:#8797ad;margin:8px 0 18px}.socials{display:flex;justify-content:center;gap:22px;color:#9fc4ff;font-size:13px}
+.toast{position:fixed;z-index:50;left:20px;bottom:20px;max-width:360px;background:#10223e;color:#fff;padding:14px 17px;border-radius:13px;box-shadow:0 15px 40px #0004;display:none}.toast.show{display:block}
+@media(max-width:950px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:115px}.hero-copy{text-align:center;margin:auto}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-media{max-width:650px;width:100%;margin:auto}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.birthday-grid{grid-template-columns:1fr}.birthday.main{transform:none}.booking-box{grid-template-columns:1fr}.videos{grid-template-columns:1fr 1fr}.offer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){header{padding:0 18px}.hero{padding-left:20px;padding-right:20px}.hero h1{font-size:43px}.actions{flex-direction:column}.hero-media{height:370px}.f1{right:5px}.f2{left:5px}.features{grid-template-columns:1fr}.feature{border:0;border-bottom:1px solid var(--line)}.section{padding:70px 20px}.head h2{font-size:31px}.price-grid{grid-template-columns:1fr}.split h2{font-size:36px}.photo{height:330px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}.g:first-child{grid-column:1/-1;grid-row:span 1}.videos{grid-template-columns:1fr}.offer-grid{grid-template-columns:1fr}.booking-box{padding:28px 20px}form{grid-template-columns:1fr}.full,.submit{grid-column:auto}}
+</style>
 </head>
 <body>
-<header class="site-header"><a class="brand" href="index.html"><img src="assets/images/logo.png" onerror="this.style.display='none'" alt=""><span>YELLOW <b>ZONE</b></span></a><nav><a href="#prices" data-ar="الأسعار" data-en="Prices">الأسعار</a><a href="trips.html" data-ar="الرحلات المدرسية" data-en="School Trips">الرحلات المدرسية</a><a href="birthdays.html" data-ar="أعياد الميلاد والحفلات" data-en="Birthdays & Parties">أعياد الميلاد والحفلات</a><a href="#gallery" data-ar="المعرض" data-en="Gallery">المعرض</a><a href="#booking" data-ar="الحجز" data-en="Booking">الحجز</a></nav><div class="head-actions"><button id="langToggle" class="lang">English</button><a class="admin" href="admin/">الإدارة</a></div></header>
-<main>
-<section class="hero"><div class="hero-copy"><p class="eyebrow" data-ar="مرحبًا بكم في Yellow Zone" data-en="Welcome to Yellow Zone">مرحبًا بكم في Yellow Zone</p><h1 data-ar="المرح يبدأ من هنا" data-en="The fun starts here">المرح يبدأ من هنا</h1><p class="lead" data-ar="مساحة ترفيهية للأطفال والعائلات تجمع اللعب والحركة والفعاليات والمناسبات في أجواء مليئة بالألوان." data-en="A family entertainment space combining play, movement, activities and celebrations in a colorful atmosphere.">مساحة ترفيهية للأطفال والعائلات تجمع اللعب والحركة والفعاليات والمناسبات في أجواء مليئة بالألوان.</p><div class="hero-actions"><a class="btn primary" href="#booking" data-ar="احجز الآن" data-en="Book now">احجز الآن</a><a class="btn secondary" href="#prices" data-ar="شاهد الأسعار" data-en="View prices">شاهد الأسعار</a></div></div><div class="hero-photo"><img src="assets/images/venue-front.jpg" alt="Yellow Zone"></div></section>
-<section class="quick-links"><a href="#prices"><span>01</span><b data-ar="الأسعار الرئيسية" data-en="Main prices">الأسعار الرئيسية</b><small data-ar="وقت مفتوح • ساعتان • ساعة" data-en="Open time • 2 hours • 1 hour">وقت مفتوح • ساعتان • ساعة</small></a><a href="trips.html"><span>02</span><b data-ar="الرحلات المدرسية" data-en="School trips">الرحلات المدرسية</b><small data-ar="رحلات مدرسية + وجبة مجانية" data-en="School trips + free meal">رحلات مدرسية + وجبة مجانية</small></a><a href="birthdays.html"><span>03</span><b data-ar="الحفلات وأعياد الميلاد" data-en="Parties & birthdays">الحفلات وأعياد الميلاد</b><small data-ar="باقات 10 و15 طفلًا وإضافات" data-en="10 & 15 kids packages and add-ons">باقات 10 و15 طفلًا وإضافات</small></a></section>
-<section id="prices" class="section"><div class="title"><p class="eyebrow" data-ar="الأسعار الرسمية" data-en="Official prices">الأسعار الرسمية</p><h2 data-ar="الأسعار الرئيسية" data-en="Main prices">الأسعار الرئيسية</h2><p data-ar="الأسعار المعروضة هنا مأخوذة من قائمة الأسعار التي زودتمونا بها." data-en="These prices are based on the official price list you provided.">الأسعار المعروضة هنا مأخوذة من قائمة الأسعار التي زودتمونا بها.</p></div><div id="generalOffers" class="price-grid"></div></section>
-<section class="feature-band"><div><p class="eyebrow" data-ar="للمدارس والمجموعات" data-en="For schools & groups">للمدارس والمجموعات</p><h2 data-ar="رحلة مدرسية مليئة بالمرح" data-en="A school trip full of fun">رحلة مدرسية مليئة بالمرح</h2><p data-ar="سعر الرحلة المدرسية 60 ريالًا، وتشمل وجبة مجانية." data-en="The school trip is 60 SAR and includes a complimentary meal.">سعر الرحلة المدرسية 60 ريالًا، وتشمل وجبة مجانية.</p><a class="btn primary" href="trips.html" data-ar="تفاصيل الرحلات" data-en="Trip details">تفاصيل الرحلات</a></div><img src="assets/images/trampoline.jpg" alt=""></section>
-<section id="gallery" class="section"><div class="title"><p class="eyebrow" data-ar="من داخل المركز" data-en="Inside the center">من داخل المركز</p><h2 data-ar="شاهدوا أجواء Yellow Zone" data-en="See Yellow Zone">شاهدوا أجواء Yellow Zone</h2></div><div class="gallery"><img src="assets/images/play-area.jpg" alt=""><img src="assets/images/slide.jpg" alt=""><img src="assets/images/ball-pit.jpg" alt=""><img src="assets/images/creative-zone.jpg" alt=""><img src="assets/images/mickey.jpg" alt=""><img src="assets/images/venue-detail.jpg" alt=""></div></section>
-<section id="booking" class="section booking"><div class="title"><p class="eyebrow" data-ar="الحجز" data-en="Booking">الحجز</p><h2 data-ar="احجز زيارتك بسهولة" data-en="Book your visit">احجز زيارتك بسهولة</h2></div><form id="bookingForm" class="booking-card"><div class="form-grid"><label><span data-ar="الاسم" data-en="Name">الاسم</span><input name="customer_name" required></label><label><span data-ar="رقم الجوال" data-en="Phone">رقم الجوال</span><input name="customer_phone" inputmode="tel" required></label><label><span data-ar="تاريخ الزيارة" data-en="Visit date">تاريخ الزيارة</span><input name="booking_date" type="date" required></label><label><span data-ar="وقت الزيارة" data-en="Visit time">وقت الزيارة</span><input name="booking_time" type="time" required></label><label><span data-ar="عدد الأشخاص" data-en="Guests">عدد الأشخاص</span><input name="guests" type="number" min="1" max="100" value="1" required></label><label><span data-ar="الخدمة" data-en="Service">الخدمة</span><select id="serviceType" name="service_type"><option value="general">الأسعار الرئيسية</option><option value="trips">رحلات مدرسية</option><option value="birthdays">حفلات وأعياد ميلاد</option></select></label><label class="full"><span data-ar="الباقة" data-en="Package">الباقة</span><select id="offerSelect" name="offer_id" required></select></label><label class="full"><span data-ar="ملاحظات" data-en="Notes">ملاحظات</span><textarea name="notes" rows="4"></textarea></label></div><button class="btn primary" type="submit" data-ar="إرسال الحجز" data-en="Submit booking">إرسال الحجز</button><p id="bookingMsg" class="message"></p></form></section>
-<section class="contact"><div><p class="eyebrow" data-ar="تواصل معنا" data-en="Contact us">تواصل معنا</p><h2>Yellow Zone</h2><p data-ar="حي قرطبة، بجوار أسواق المزرعة، الرياض" data-en="Qurtubah District, next to Al Mazraa Markets, Riyadh">حي قرطبة، بجوار أسواق المزرعة، الرياض</p></div><div class="contact-actions"><a href="tel:+966554160210">+966 55 416 0210</a><a target="_blank" rel="noopener" href="https://maps.app.goo.gl/ALGmWMEhsNHwmmBX8" data-ar="فتح الموقع" data-en="Open location">فتح الموقع</a></div></section>
-</main><footer><span>© 2026 Yellow Zone</span><span><a target="_blank" href="https://www.instagram.com/yellow.zoooon24/">Instagram</a> · <a target="_blank" href="https://www.tiktok.com/@yellowzooone24">TikTok</a> · <a target="_blank" href="https://www.snapchat.com/add/yellowzoooone24">Snapchat</a></span></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script>
-</body></html>
+<header>
+  <a class="logo" href="#home"><b>YELLOW</b><i></i><span>ZONE</span></a>
+  <nav>
+    <a href="#prices">الأسعار</a><a href="#offers">العروض</a><a href="#trips">الرحلات المدرسية</a><a href="#birthdays">أعياد الميلاد</a><a href="#gallery">المعرض</a><a href="#booking">الحجز</a>
+  </nav>
+  <button class="lang" onclick="toggleLang()">English</button>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <div class="badge">✨ عالم من المرح بانتظاركم</div>
+    <h1>أهلاً بكم في <span>Yellow Zone</span></h1>
+    <p>مكان يجمع اللعب والمغامرة والفعاليات والذكريات الجميلة للأطفال والعائلات.</p>
+    <div class="actions"><a class="btn primary" href="#booking">احجز الآن</a><a class="btn secondary" href="#prices">اكتشف الأسعار</a></div>
+  </div>
+  <div class="hero-media">
+    <img src="assets/images/yellow-zone-05.jpg" alt="واجهة Yellow Zone">
+    <div class="hero-caption"><strong>من هنا تبدأ المتعة</strong><small>ألعاب • فعاليات • أعياد ميلاد • رحلات مدرسية</small></div>
+    <div class="float f1"><b>75</b><small>ريال • وقت مفتوح</small></div>
+    <div class="float f2"><b>60</b><small>ريال • ساعتان</small></div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature"><div class="fi">🎮</div><h3>ألعاب ممتعة</h3><p>تجربة مليانة حركة ومرح</p></div>
+  <div class="feature"><div class="fi">🎂</div><h3>أعياد الميلاد</h3><p>احتفل بيومك بطريقة مختلفة</p></div>
+  <div class="feature"><div class="fi">🏫</div><h3>رحلات مدرسية</h3><p>تجربة مناسبة للمجموعات</p></div>
+  <div class="feature"><div class="fi">📸</div><h3>ذكريات جميلة</h3><p>لحظات تستاهل تتوثق</p></div>
+</section>
+
+<section class="section prices" id="prices">
+  <div class="head"><span class="label">الأسعار</span><h2>اختار التجربة المناسبة لك</h2><p>أسعار واضحة وبسيطة بدون تعقيد.</p></div>
+  <div class="price-grid">
+    <div class="card"><div class="icon">♾️</div><h3>وقت مفتوح</h3><div class="price">75 <small>ريال</small></div><p>استمتع بوقتك بدون تحديد مدة.</p><button onclick="book('وقت مفتوح')">احجز الآن</button></div>
+    <div class="card featured"><div class="popular">الأكثر طلباً</div><div class="icon">⭐</div><h3>ساعتان</h3><div class="price">60 <small>ريال</small></div><p>ساعتان كاملة من اللعب والمتعة.</p><button onclick="book('ساعتان')">احجز الآن</button></div>
+    <div class="card"><div class="icon">⏱️</div><h3>ساعة</h3><div class="price">45 <small>ريال</small></div><p>ساعة كاملة من اللعب.</p><button onclick="book('ساعة')">احجز الآن</button></div>
+    <div class="card"><div class="icon">➕</div><h3>تجديد ساعة</h3><div class="price">20 <small>ريال</small></div><p>أضف ساعة إضافية لوقت اللعب.</p><button onclick="book('تجديد ساعة')">احجز الآن</button></div>
+  </div>
+</section>
+
+<section class="section offers" id="offers">
+  <div class="head"><span class="label">العروض والباقات</span><h2>اختار اللي يناسبك</h2><p>تجارب متنوعة بأسعار واضحة، وكل باقة لها أجواؤها.</p></div>
+  <div class="offer-grid">
+    <article class="offer-card"><img src="assets/images/yellow-zone-08.jpg" alt="أجواء الألعاب في Yellow Zone"><div class="offer-body"><span>لعب ومرح</span><h3>وقت مفتوح</h3><strong>75 ريال</strong><p>استمتع بوقتك بدون تحديد مدة.</p><button onclick="book('وقت مفتوح')">احجز الآن</button></div></article>
+    <article class="offer-card featured-offer"><img src="assets/images/yellow-zone-04.jpg" alt="فعالية داخل Yellow Zone"><div class="offer-body"><span>الأكثر طلباً</span><h3>ساعتان</h3><strong>60 ريال</strong><p>ساعتان كاملة من اللعب والمتعة.</p><button onclick="book('ساعتان')">احجز الآن</button></div></article>
+    <article class="offer-card"><img src="assets/images/yellow-zone-16.png" alt="فعالية وحفلة في Yellow Zone"><div class="offer-body"><span>للمجموعات</span><h3>رحلة مدرسية</h3><strong>60 ريال للطفل</strong><p>تشمل وجبة مجانية.</p><button onclick="book('رحلة مدرسية')">احجز الآن</button></div></article>
+  </div>
+</section>
+
+<section class="section split" id="trips">
+  <div class="photo"><img src="assets/images/yellow-zone-15.png" alt="رحلات مدرسية في Yellow Zone"><div class="photo-tag">🏫 رحلات مدرسية</div></div>
+  <div><span class="label">للمدارس والمجموعات</span><h2>خلّي الرحلة المدرسية يوم ما يتنسي</h2><p>تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية.</p><div class="trip-price">60 <small>ريال للطفل</small></div><p>✓ تشمل وجبة مجانية</p><a class="btn primary" href="#booking" onclick="book('رحلة مدرسية')">احجز رحلة مدرسية</a></div>
+</section>
+
+<section class="section birthdays" id="birthdays">
+  <div class="head"><span class="label">أعياد الميلاد والحفلات</span><h2>يوم ميلادك يستاهل احتفال كبير</h2><p>اختر الباقة المناسبة وأضف الإضافات اللي تناسب حفلتك.</p></div>
+  <div class="birthday-grid">
+    <div class="birthday"><div class="kids">10</div><h3>10 أطفال</h3><div class="birthday-price">1350 ريال</div><button onclick="book('عيد ميلاد - 10 أطفال')">احجز الباقة</button></div>
+    <div class="birthday main"><div class="kids">15</div><h3>15 طفل</h3><div class="birthday-price">1800 ريال</div><button onclick="book('عيد ميلاد - 15 طفل')">احجز الباقة</button></div>
+    <div class="birthday extras"><h3>إضافات الحفلة</h3><div class="extra"><span>طفل إضافي</span><strong>90 ريال</strong></div><div class="extra"><span>عرض الساحر</span><strong>300 ريال</strong></div><div class="extra"><span>رسم على الوجه</span><strong>10 ريال</strong></div></div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="head"><span class="label">المعرض</span><h2>شوف أجواء Yellow Zone</h2><p>صور حقيقية من المكان والألعاب والفعاليات والحفلات.</p></div>
+  <div class="gallery-grid">
+    <div class="g"><img src="assets/images/yellow-zone-07.jpg" alt="منطقة اللعب"><span>أجواء المكان</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-01.jpg" alt="الألعاب"><span>اللعب والمرح</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-11.jpg" alt="فعالية عيد ميلاد"><span>أعياد الميلاد</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-03.jpg" alt="منطقة الألعاب"><span>منطقة الألعاب</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-04.jpg" alt="الفعاليات"><span>الفعاليات</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-02.jpg" alt="أجواء Yellow Zone"><span>أجواء Yellow Zone</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-06.jpg" alt="تفاصيل المكان"><span>تفاصيل المكان</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-10.jpg" alt="منطقة اللعب"><span>منطقة اللعب</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-14.png" alt="فعالية داخل المركز"><span>فعاليات المركز</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-15.png" alt="رحلة مدرسية"><span>رحلات مدرسية</span></div>
+  </div>
+</section>
+
+<section class="section video-section">
+  <div class="head dark"><span class="label">الفيديوهات</span><h2>شوف المتعة بنفسك</h2><p>لقطات من أجواء المكان والفعاليات.</p></div>
+  <div class="videos">
+        <div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-02.mp4"></video><p>لقطات من الفعاليات</p></div>
+    <div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-04.mp4"></video><p>اللعب والمرح</p></div>
+    <div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-05.mp4"></video><p>فعالية للأطفال</p></div>
+  </div>
+</section>
+
+<section class="section booking" id="booking">
+  <div class="booking-box">
+    <div class="booking-info"><span class="label">الحجز</span><h2>احجز تجربتك</h2><p>عبّي بياناتك، وسيتم إرسال طلب الحجز للفريق لتأكيده.</p><div class="contact"><div>📞 <a href="tel:+966554160210">+966 55 416 0210</a></div><div>📍 <a target="_blank" href="https://maps.app.goo.gl/ALGmWMEhsNHwmmBX8">موقع Yellow Zone</a></div></div></div>
+    <form id="bookingForm">
+      <label>الاسم<input id="name" required placeholder="اكتب اسمك"></label>
+      <label>رقم الجوال<input id="phone" required type="tel" placeholder="05xxxxxxxx"></label>
+      <label>عدد الأشخاص<input id="guests" required min="1" type="number" placeholder="مثلاً 5"></label>
+      <label>التاريخ<input id="date" required type="date"></label>
+      <label>الوقت<input id="time" required type="time"></label>
+      <label>الخدمة<select id="service"><option>وقت مفتوح</option><option>ساعتان</option><option>ساعة</option><option>تجديد ساعة</option><option>رحلة مدرسية</option><option>عيد ميلاد</option></select></label>
+      <label class="full">ملاحظات<textarea id="notes" placeholder="أي ملاحظات إضافية..."></textarea></label>
+      <button class="submit" type="submit">إرسال طلب الحجز</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="flogo"><b>YELLOW</b> <span>ZONE</span></div><p>المتعة تبدأ من هنا.</p><div class="socials"><a target="_blank" href="https://www.instagram.com/yellow.zoooon24/">Instagram</a><a target="_blank" href="https://www.tiktok.com/@yellowzooone24">TikTok</a><a target="_blank" href="https://www.snapchat.com/add/yellowzoooone24">Snapchat</a></div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const SUPABASE_URL='https://wmqjlbrgdjgfjwopekup.supabase.co';
+const SUPABASE_KEY='sb_publishable_N3BSrFZfEidi-nN8hYbWFg_WbjMMsDn';
+const today=new Date().toISOString().split('T')[0];
+document.getElementById('date').min=today;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4200)}
+function book(service){document.getElementById('service').value=service;document.getElementById('booking').scrollIntoView({behavior:'smooth'})}
+async function sendBooking(data){const r=await fetch(SUPABASE_URL+'/rest/v1/bookings',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Prefer':'return=minimal'},body:JSON.stringify(data)});if(!r.ok)throw new Error(await r.text())}
+document.getElementById('bookingForm').addEventListener('submit',async e=>{e.preventDefault();const btn=e.target.querySelector('.submit');btn.disabled=true;btn.textContent='جاري إرسال الطلب...';const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),guests=Number(document.getElementById('guests').value),date=document.getElementById('date').value,time=document.getElementById('time').value,service=document.getElementById('service').value,notes=document.getElementById('notes').value.trim();const data={booking_code:'YZ-'+Date.now(),customer_name:name,customer_phone:phone,booking_date:date,booking_time:time,guests,offer_name_snapshot:service,service_type:service,notes,status:'new'};try{await sendBooking(data);toast('تم إرسال طلب الحجز بنجاح. سيتم التواصل معك لتأكيد الحجز.');e.target.reset();document.getElementById('date').min=today}catch(err){console.error(err);toast('تعذر إرسال الحجز حاليًا. تواصل معنا على +966 55 416 0210.')}finally{btn.disabled=false;btn.textContent='إرسال طلب الحجز'}});
+function toggleLang(){const html=document.documentElement;if(html.lang==='ar'){html.lang='en';html.dir='ltr';document.querySelector('.lang').textContent='العربية';document.title='Yellow Zone | Entertainment Center'}else{html.lang='ar';html.dir='rtl';document.querySelector('.lang').textContent='English';document.title='Yellow Zone | المنطقة الصفراء'}toast(html.lang==='en'?'The layout is ready for English content.':'تم الرجوع للعربية.');}
+</script>
+</body>
+</html>
