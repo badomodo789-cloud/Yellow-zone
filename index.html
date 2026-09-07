@@ -119,8 +119,8 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
 
 <section class="section booking" id="booking">
   <div class="booking-box">
-    <div class="booking-info"><span class="label" data-ar="الحجز" data-en="Booking">الحجز</span><h2 data-ar="احجز تجربتك بسهولة" data-en="Book your experience easily">احجز تجربتك بسهولة</h2><p data-ar="اختار الباقة أو الفعالية، وبعدها حدد التاريخ والوقت واكتب بياناتك. طلبك يوصل للفريق مباشرة للتأكيد." data-en="Choose a package or event, then select your date and time and enter your details. Your request goes directly to our team for confirmation.">اختار الباقة أو الفعالية، وبعدها حدد التاريخ والوقت واكتب بياناتك. طلبك يوصل للفريق مباشرة للتأكيد.</p><div class="contact"><div>📞 <a href="tel:+966554160210">+966 55 416 0210</a></div><div>📍 <a target="_blank" rel="noopener" href="https://maps.app.goo.gl/ALGmWMEhsNHwmmBX8" data-ar="موقع Yellow Zone" data-en="Yellow Zone Location">موقع Yellow Zone</a></div></div><div class="booking-start"><button class="btn primary" type="button" onclick="openBooking('open')" data-ar="ابدأ الحجز" data-en="Start Booking">ابدأ الحجز</button></div></div>
-    <div class="booking-preview"><strong data-ar="نظام حجز مرتب" data-en="A clean booking system">نظام حجز مرتب</strong><span data-ar="اختيار الخدمة → اختيار التاريخ → اختيار الوقت → بيانات العميل → إرسال الطلب" data-en="Choose service → choose date → choose time → customer details → send request">اختيار الخدمة → اختيار التاريخ → اختيار الوقت → بيانات العميل → إرسال الطلب</span><p class="form-note" data-ar="لا يوجد دفع إلكتروني حالياً. يتم تأكيد الحجز من فريق Yellow Zone بعد استلام الطلب." data-en="Online payment is not available yet. The Yellow Zone team confirms your booking after receiving the request.">لا يوجد دفع إلكتروني حالياً. يتم تأكيد الحجز من فريق Yellow Zone بعد استلام الطلب.</p></div>
+    <div class="booking-info"><span class="label" data-ar="الحجز" data-en="Booking">الحجز</span><h2 data-ar="احجز تجربتك بسهولة" data-en="Book your experience easily">احجز تجربتك بسهولة</h2><p data-ar="اختار الباقة أو الفعالية، وبعدها حدد التاريخ واكتب بياناتك. طلبك يوصل للفريق مباشرة للتأكيد." data-en="Choose a package or event, then select your date and enter your details. Your request goes directly to our team for confirmation.">اختار الباقة أو الفعالية، وبعدها حدد التاريخ واكتب بياناتك. طلبك يوصل للفريق مباشرة للتأكيد.</p><div class="contact"><div>📞 <a href="tel:+966554160210">+966 55 416 0210</a></div><div>📍 <a target="_blank" rel="noopener" href="https://maps.app.goo.gl/ALGmWMEhsNHwmmBX8" data-ar="موقع Yellow Zone" data-en="Yellow Zone Location">موقع Yellow Zone</a></div></div><div class="booking-start"><button class="btn primary" type="button" onclick="openBooking('open')" data-ar="ابدأ الحجز" data-en="Start Booking">ابدأ الحجز</button></div></div>
+    <div class="booking-preview"><strong data-ar="نظام حجز مرتب" data-en="A clean booking system">نظام حجز مرتب</strong><span data-ar="اختيار الخدمة → اختيار التاريخ → بيانات العميل → إرسال الطلب" data-en="Choose service → choose date → customer details → send request">اختيار الخدمة → اختيار التاريخ → بيانات العميل → إرسال الطلب</span><p class="form-note" data-ar="لا يوجد دفع إلكتروني حالياً. يتم تأكيد الحجز من فريق Yellow Zone بعد استلام الطلب." data-en="Online payment is not available yet. The Yellow Zone team confirms your booking after receiving the request.">لا يوجد دفع إلكتروني حالياً. يتم تأكيد الحجز من فريق Yellow Zone بعد استلام الطلب.</p></div>
   </div>
 </section>
 </main>
@@ -136,7 +136,6 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
       <label data-ar="رقم الجوال" data-en="Phone Number">رقم الجوال<input id="phone" required type="tel" inputmode="tel" autocomplete="tel" minlength="9" placeholder="05xxxxxxxx" data-ar-placeholder="05xxxxxxxx" data-en-placeholder="05xxxxxxxx"></label>
       <label data-ar="عدد الأشخاص" data-en="Number of People">عدد الأشخاص<input id="guests" required min="1" step="1" type="number" inputmode="numeric" placeholder="مثلاً 5" data-ar-placeholder="مثلاً 5" data-en-placeholder="e.g. 5"></label>
       <label data-ar="التاريخ" data-en="Date">التاريخ<input id="date" required type="date"></label>
-      <label data-ar="الوقت" data-en="Time">الوقت<input id="time" required type="time"></label>
       <label data-ar="الخدمة" data-en="Service">الخدمة<select id="service" required></select></label>
       <label class="full" data-ar="ملاحظات" data-en="Notes">ملاحظات<textarea id="notes" placeholder="أي ملاحظات إضافية..." data-ar-placeholder="أي ملاحظات إضافية..." data-en-placeholder="Any additional notes..."></textarea></label>
       <button class="submit" type="submit" data-ar="إرسال طلب الحجز" data-en="Send Booking Request">إرسال طلب الحجز</button>
@@ -154,7 +153,6 @@ const langButton=document.getElementById('langButton');
 const modal=document.getElementById('bookingModal');
 const serviceSelect=document.getElementById('service');
 const dateInput=document.getElementById('date');
-const timeInput=document.getElementById('time');
 const form=document.getElementById('bookingForm');
 let currentLang=localStorage.getItem('yellow-zone-language')||'ar';
 let selectedKey='open';
@@ -244,8 +242,8 @@ form.addEventListener('submit',async e=>{
  e.preventDefault();
  if(!form.reportValidity())return;
  const btn=form.querySelector('.submit');btn.disabled=true;btn.textContent=currentLang==='ar'?'جاري إرسال الطلب...':'Sending request...';
- const name=document.getElementById('name').value.trim();const phone=document.getElementById('phone').value.trim();const guests=Number(document.getElementById('guests').value);const date=dateInput.value;const time=timeInput.value;const notes=document.getElementById('notes').value.trim();const s=services[selectedKey]||dynamicEvents[selectedKey]||services.open;const service=s[currentLang]||s.ar;
- const data={booking_code:'YZ-'+Date.now(),customer_name:name,customer_phone:phone,booking_date:date,booking_time:time,guests,offer_name_snapshot:service,service_type:service,notes,status:'new'};
+ const name=document.getElementById('name').value.trim();const phone=document.getElementById('phone').value.trim();const guests=Number(document.getElementById('guests').value);const date=dateInput.value;const notes=document.getElementById('notes').value.trim();const s=services[selectedKey]||dynamicEvents[selectedKey]||services.open;const service=s[currentLang]||s.ar;
+ const data={booking_code:'YZ-'+Date.now(),customer_name:name,customer_phone:phone,booking_date:date,guests,offer_name_snapshot:service,service_type:service,notes,status:'new'};
  try{await sendBooking(data);toast(currentLang==='ar'?'تم إرسال طلب الحجز بنجاح. سيتم التواصل معك لتأكيد الحجز.':'Your booking request was sent successfully. We will contact you to confirm it.','success');form.reset();dateInput.min=isoToday();selectedKey='open';renderServiceOptions();updateSelectedService();setTimeout(closeBooking,900)}catch(err){console.error(err);toast(currentLang==='ar'?'تعذر إرسال الحجز حالياً. تواصل معنا على +966 55 416 0210.':'The booking could not be sent right now. Please contact us on +966 55 416 0210.','error')}finally{btn.disabled=false;btn.textContent=btn.getAttribute('data-'+currentLang)}
 });
 
