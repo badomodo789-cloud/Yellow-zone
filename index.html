@@ -7,11 +7,10 @@
 <meta name="description" content="Yellow Zone - ألعاب وفعاليات وأعياد ميلاد ورحلات مدرسية">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
-:root{--blue:#1267df;--blue2:#0a4fae;--yellow:#ffd400;--ink:#13233d;--muted:#718096;--bg:#f5f9ff;--line:#e5ecf5;--white:#fff}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Cairo,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
-header{position:fixed;z-index:20;top:0;left:0;right:0;height:78px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.logo{font-size:22px;font-weight:900;direction:ltr}.logo b{color:var(--yellow)}.logo span{color:var(--blue)}.logo i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--yellow);margin:0 5px}
-nav{display:flex;gap:25px}nav a{font-size:13px;font-weight:800;color:#45546a}nav a:hover{color:var(--blue)}.lang{border:1px solid var(--blue);background:#fff;color:var(--blue);padding:8px 16px;border-radius:30px;font-weight:800}
+:root{--blue:#1267df;--blue2:#0a4fae;--yellow:#ffd400;--ink:#13233d;--muted:#718096;--bg:#f5f9ff;--line:#e5ecf5;--white:#fff;--green:#12a36b;--danger:#d64545}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Cairo,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}body.modal-open{overflow:hidden}
+header{position:fixed;z-index:30;top:0;left:0;right:0;height:78px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.logo{font-size:22px;font-weight:900;direction:ltr}.logo b{color:var(--yellow)}.logo span{color:var(--blue)}.logo i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--yellow);margin:0 5px}nav{display:flex;gap:25px}nav a{font-size:13px;font-weight:800;color:#45546a}nav a:hover{color:var(--blue)}.lang{border:1px solid var(--blue);background:#fff;color:var(--blue);padding:8px 16px;border-radius:30px;font-weight:800}
 .hero{padding:130px 7% 75px;min-height:720px;display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;background:radial-gradient(circle at 88% 8%,#fff0a2,transparent 25%),radial-gradient(circle at 5% 90%,#dceeff,transparent 30%),#f8fbff}.hero-copy{max-width:650px}.badge{display:inline-block;background:#fff2ae;color:#755f00;border-radius:30px;padding:8px 16px;font-size:13px;font-weight:800;margin-bottom:18px}.hero h1{font-size:clamp(43px,6vw,76px);line-height:1.12;margin-bottom:22px;font-weight:900}.hero h1 span{color:var(--blue);display:block}.hero p{color:var(--muted);font-size:18px;line-height:2;margin-bottom:30px}.actions{display:flex;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:12px;font-weight:900}.primary{background:var(--blue);color:#fff;box-shadow:0 14px 30px #1267df30}.secondary{background:#fff;color:var(--blue);border:1px solid var(--line)}
 .hero-media{position:relative;height:500px}.hero-media img{width:100%;height:100%;object-fit:cover;border-radius:36px;box-shadow:0 30px 70px #16447725}.hero-media:after{content:"";position:absolute;inset:auto 22px 22px 22px;height:35%;border-radius:22px;background:linear-gradient(transparent,#06172bcc)}.hero-caption{position:absolute;z-index:2;bottom:38px;right:35px;color:#fff}.hero-caption strong{display:block;font-size:23px}.hero-caption small{color:#dce8f8}.float{position:absolute;z-index:3;background:#fff;padding:14px 19px;border-radius:18px;box-shadow:0 18px 45px #183b6520}.f1{top:25px;right:-24px}.f2{bottom:25px;left:-24px}.float b{display:block;font-size:27px;color:var(--blue)}.float small{color:var(--muted)}
 .features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-bottom:1px solid var(--line);padding:32px 7%}.feature{text-align:center;padding:10px 18px;border-left:1px solid #edf1f6}.feature:last-child{border:0}.fi{width:56px;height:56px;display:grid;place-items:center;background:#edf5ff;border-radius:17px;margin:auto auto 10px;font-size:26px}.feature h3{font-size:16px}.feature p{font-size:12px;color:#8793a5}
@@ -19,20 +18,22 @@ nav{display:flex;gap:25px}nav a{font-size:13px;font-weight:800;color:#45546a}nav
 .prices{background:#f6faff}.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 23px;text-align:center;transition:.25s}.card:hover{transform:translateY(-7px);box-shadow:0 22px 45px #17487c18}.card.featured{border:2px solid var(--blue);position:relative}.popular{position:absolute;top:-13px;right:50%;transform:translateX(50%);background:var(--blue);color:#fff;border-radius:30px;padding:4px 15px;font-size:11px;font-weight:800}.icon{width:60px;height:60px;display:grid;place-items:center;margin:auto auto 13px;background:#edf5ff;border-radius:18px;font-size:27px}.card h3{font-size:18px}.price{font-size:41px;color:var(--blue);font-weight:900;margin:7px 0}.price small{font-size:13px;color:var(--muted)}.card p{font-size:12px;color:#8390a3;min-height:44px}.card button{width:100%;margin-top:18px;border:0;background:var(--blue);color:#fff;padding:11px;border-radius:10px;font-weight:800}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;background:#fff}.photo{position:relative;height:500px}.photo img{width:100%;height:100%;object-fit:cover;border-radius:34px}.photo-tag{position:absolute;bottom:22px;right:22px;background:#fff;border-radius:16px;padding:12px 18px;box-shadow:0 15px 35px #173b611c;font-weight:800}.split h2{font-size:45px;line-height:1.3;margin:8px 0 17px}.split p{color:var(--muted);line-height:2;margin-bottom:20px}.trip-price{font-size:39px;font-weight:900;color:var(--blue);margin-bottom:15px}.trip-price small{font-size:14px;color:var(--muted)}
 .birthdays{background:#f5f9ff}.birthday-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}.birthday{background:#fff;border:1px solid var(--line);border-radius:25px;padding:30px;text-align:center}.birthday.main{background:var(--blue);color:#fff;border:0;transform:translateY(-8px)}.kids{font-size:62px;line-height:1;font-weight:900;color:var(--yellow)}.birthday-price{font-size:29px;font-weight:900;margin:9px 0}.birthday button{width:100%;border:0;border-radius:10px;padding:12px;background:var(--blue);color:#fff;font-weight:800}.birthday.main button{background:#fff;color:var(--blue)}.extras{text-align:right}.extra{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}.extra strong{color:var(--blue)}
-.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:15px}.g{position:relative;overflow:hidden;border-radius:22px;background:#dfeeff}.g:first-child{grid-row:span 2}.g img{width:100%;height:100%;object-fit:cover;transition:.35s}.g:hover img{transform:scale(1.05)}.g:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0009)}.g span{position:absolute;z-index:2;bottom:15px;right:18px;color:#fff;font-weight:800}
-
 .offers{background:#fff}.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.offer-card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 15px 45px #19487812;transition:.25s}.offer-card:hover{transform:translateY(-6px);box-shadow:0 22px 55px #1948781c}.offer-card img{width:100%;height:230px;object-fit:cover;display:block}.offer-body{padding:22px}.offer-body span{font-size:11px;font-weight:900;color:var(--blue)}.offer-body h3{font-size:22px;margin:7px 0}.offer-body strong{font-size:27px;color:var(--blue);display:block;margin-bottom:7px}.offer-body p{font-size:13px;color:var(--muted);min-height:42px}.offer-body button{width:100%;border:0;background:var(--blue);color:#fff;padding:12px;border-radius:11px;font-weight:900}.featured-offer{border:2px solid var(--blue)}
+.ads-wrap{margin-top:30px}.ads-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.ad-card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 15px 45px #19487812}.ad-card img{width:100%;height:220px;object-fit:cover;display:block}.ad-body{padding:20px}.ad-body h3{font-size:21px}.ad-body p{color:var(--muted);font-size:13px;margin:8px 0 15px}.ad-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}.event-badge{font-size:11px;font-weight:900;color:var(--blue);background:#edf5ff;padding:5px 10px;border-radius:30px}.ad-body button{border:0;background:var(--blue);color:#fff;border-radius:10px;padding:10px 14px;font-weight:900}.empty-ads{display:none;text-align:center;color:var(--muted);padding:20px}
+.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:15px}.g{position:relative;overflow:hidden;border-radius:22px;background:#dfeeff}.g:first-child{grid-row:span 2}.g img{width:100%;height:100%;object-fit:cover;transition:.35s}.g:hover img{transform:scale(1.05)}.g:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0009)}.g span{position:absolute;z-index:2;bottom:15px;right:18px;color:#fff;font-weight:800}
 .video-section{background:#10223e;color:#fff}.head.dark p{color:#9cabc0}.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.video{background:#07172d;border-radius:20px;overflow:hidden}.video video{display:block;width:100%;height:220px;object-fit:cover}.video p{padding:12px 15px;font-weight:800;font-size:13px}
-.booking{background:#f5f9ff}.booking-box{max-width:1100px;margin:auto;background:#fff;border-radius:30px;padding:48px;display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;box-shadow:0 20px 60px #19487812}.booking-info h2{font-size:40px;line-height:1.3;margin:7px 0 15px}.booking-info p{color:var(--muted);line-height:2}.contact{margin-top:25px;display:grid;gap:9px;font-weight:800}.contact a{color:var(--blue)}form{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{font-size:12px;font-weight:800;display:grid;gap:6px}input,select,textarea{border:1px solid #dce5f0;border-radius:10px;padding:12px;outline:0;width:100%}input:focus,select:focus,textarea:focus{border-color:var(--blue)}textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.submit{grid-column:1/-1;border:0;background:var(--blue);color:#fff;border-radius:11px;padding:14px;font-weight:900}
+.booking{background:#f5f9ff}.booking-box{max-width:1100px;margin:auto;background:#fff;border-radius:30px;padding:48px;display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;box-shadow:0 20px 60px #19487812}.booking-info h2{font-size:40px;line-height:1.3;margin:7px 0 15px}.booking-info p{color:var(--muted);line-height:2}.contact{margin-top:25px;display:grid;gap:9px;font-weight:800}.contact a{color:var(--blue)}.booking-start{margin-top:25px}.booking-preview{background:#f5f9ff;border:1px solid var(--line);border-radius:20px;padding:20px}.booking-preview strong{display:block;font-size:18px;margin-bottom:4px}.booking-preview span{font-size:13px;color:var(--muted)}
+.form-note{color:var(--muted);font-size:12px;margin-top:10px}form{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{font-size:12px;font-weight:800;display:grid;gap:6px}input,select,textarea{border:1px solid #dce5f0;border-radius:12px;padding:12px;outline:0;width:100%;background:#fff;color:var(--ink)}input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #1267df12}textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.submit{grid-column:1/-1;border:0;background:var(--blue);color:#fff;border-radius:11px;padding:14px;font-weight:900}.submit:disabled{opacity:.65;cursor:not-allowed}
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:#07172dcc;backdrop-filter:blur(7px)}.modal.show{display:flex}.modal-card{width:min(820px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:30px;box-shadow:0 30px 90px #0005;position:relative}.modal-top{padding:25px 30px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.modal-top h3{font-size:25px}.close{border:0;background:#f1f5fa;color:var(--ink);width:42px;height:42px;border-radius:50%;font-size:23px}.selected-service{margin:20px 30px 0;background:linear-gradient(135deg,#edf5ff,#fff8c7);border:1px solid #dbe8f7;border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:15px}.selected-service b{font-size:18px}.selected-service span{display:block;color:var(--muted);font-size:12px}.modal-form{padding:22px 30px 30px}.modal-form .submit{margin-top:3px}.date-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}.date-chip{border:1px solid var(--line);background:#fff;padding:6px 9px;border-radius:9px;font-size:11px;color:var(--muted)}
+.toast{position:fixed;z-index:150;left:20px;bottom:20px;max-width:390px;background:#10223e;color:#fff;padding:14px 17px;border-radius:13px;box-shadow:0 15px 40px #0004;display:none}.toast.show{display:block}.toast.success{background:#0d7651}.toast.error{background:#a83232}
 footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{font-size:24px;font-weight:900;direction:ltr}.flogo b{color:var(--yellow)}.flogo span{color:#fff}footer p{color:#8797ad;margin:8px 0 18px}.socials{display:flex;justify-content:center;gap:22px;color:#9fc4ff;font-size:13px}
-.toast{position:fixed;z-index:50;left:20px;bottom:20px;max-width:360px;background:#10223e;color:#fff;padding:14px 17px;border-radius:13px;box-shadow:0 15px 40px #0004;display:none}.toast.show{display:block}
-@media(max-width:950px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:115px}.hero-copy{text-align:center;margin:auto}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-media{max-width:650px;width:100%;margin:auto}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.birthday-grid{grid-template-columns:1fr}.birthday.main{transform:none}.booking-box{grid-template-columns:1fr}.videos{grid-template-columns:1fr 1fr}.offer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){header{padding:0 18px}.hero{padding-left:20px;padding-right:20px}.hero h1{font-size:43px}.actions{flex-direction:column}.hero-media{height:370px}.f1{right:5px}.f2{left:5px}.features{grid-template-columns:1fr}.feature{border:0;border-bottom:1px solid var(--line)}.section{padding:70px 20px}.head h2{font-size:31px}.price-grid{grid-template-columns:1fr}.split h2{font-size:36px}.photo{height:330px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}.g:first-child{grid-column:1/-1;grid-row:span 1}.videos{grid-template-columns:1fr}.offer-grid{grid-template-columns:1fr}.booking-box{padding:28px 20px}form{grid-template-columns:1fr}.full,.submit{grid-column:auto}}
+@media(max-width:950px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:115px}.hero-copy{text-align:center;margin:auto}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-media{max-width:650px;width:100%;margin:auto}.features{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.birthday-grid{grid-template-columns:1fr}.birthday.main{transform:none}.booking-box{grid-template-columns:1fr}.videos,.ads-grid,.offer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){header{padding:0 18px}.hero{padding-left:20px;padding-right:20px}.hero h1{font-size:43px}.actions{flex-direction:column}.hero-media{height:370px}.f1{right:5px}.f2{left:5px}.features{grid-template-columns:1fr}.feature{border:0;border-bottom:1px solid #edf1f6}.price-grid,.offer-grid,.ads-grid,.videos{grid-template-columns:1fr}.section{padding:70px 20px}.head h2{font-size:31px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px}.g:first-child{grid-row:span 2}.booking-box{padding:25px}.modal-card{border-radius:22px}.modal-top,.modal-form{padding-left:20px;padding-right:20px}.selected-service{margin-left:20px;margin-right:20px}form{grid-template-columns:1fr}.full,.submit{grid-column:auto}.booking-preview{margin-top:15px}}
 </style>
 </head>
 <body>
 <header>
-  <a class="logo" href="#home"><b>YELLOW</b><i></i><span>ZONE</span></a>
+  <div class="logo"><b>YELLOW</b><i></i><span>ZONE</span></div>
   <nav>
     <a href="#prices" data-ar="الأسعار" data-en="Prices">الأسعار</a>
     <a href="#offers" data-ar="العروض" data-en="Offers">العروض</a>
@@ -41,10 +42,10 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
     <a href="#gallery" data-ar="المعرض" data-en="Gallery">المعرض</a>
     <a href="#booking" data-ar="الحجز" data-en="Booking">الحجز</a>
   </nav>
-  <button class="lang" onclick="toggleLang()">English</button>
+  <button class="lang" id="langButton" type="button">English</button>
 </header>
 
-<main id="home">
+<main>
 <section class="hero">
   <div class="hero-copy">
     <div class="badge" data-ar="✨ عالم من المرح بانتظاركم" data-en="✨ A world of fun is waiting for you">✨ عالم من المرح بانتظاركم</div>
@@ -60,42 +61,46 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
   </div>
 </section>
 
-<section class="features">
+<div class="features">
   <div class="feature"><div class="fi">🎮</div><h3 data-ar="ألعاب ممتعة" data-en="Fun Games">ألعاب ممتعة</h3><p data-ar="تجربة مليانة حركة ومرح" data-en="An experience full of movement and fun">تجربة مليانة حركة ومرح</p></div>
-  <div class="feature"><div class="fi">🎂</div><h3 data-ar="أعياد الميلاد" data-en="Birthdays">أعياد الميلاد</h3><p data-ar="احتفل بيومك بطريقة مختلفة" data-en="Celebrate your special day in a different way">احتفل بيومك بطريقة مختلفة</p></div>
+  <div class="feature"><div class="fi">🎂</div><h3 data-ar="أعياد الميلاد" data-en="Birthdays">أعياد الميلاد</h3><p data-ar="احتفل بيومك بطريقة مختلفة" data-en="Celebrate your special day differently">احتفل بيومك بطريقة مختلفة</p></div>
   <div class="feature"><div class="fi">🏫</div><h3 data-ar="رحلات مدرسية" data-en="School Trips">رحلات مدرسية</h3><p data-ar="تجربة مناسبة للمجموعات" data-en="A great experience for groups">تجربة مناسبة للمجموعات</p></div>
   <div class="feature"><div class="fi">📸</div><h3 data-ar="ذكريات جميلة" data-en="Beautiful Memories">ذكريات جميلة</h3><p data-ar="لحظات تستاهل تتوثق" data-en="Moments worth remembering">لحظات تستاهل تتوثق</p></div>
-</section>
+</div>
 
 <section class="section prices" id="prices">
   <div class="head"><span class="label" data-ar="الأسعار" data-en="Prices">الأسعار</span><h2 data-ar="اختار التجربة المناسبة لك" data-en="Choose the experience that suits you">اختار التجربة المناسبة لك</h2><p data-ar="أسعار واضحة وبسيطة بدون تعقيد." data-en="Clear and simple prices, with no complications.">أسعار واضحة وبسيطة بدون تعقيد.</p></div>
   <div class="price-grid">
-    <div class="card"><div class="icon">♾️</div><h3 data-ar="وقت مفتوح" data-en="Open Time">وقت مفتوح</h3><div class="price">75 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="استمتع بوقتك بدون تحديد مدة." data-en="Enjoy your time with no time limit.">استمتع بوقتك بدون تحديد مدة.</p><button onclick="book('open')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
-    <div class="card featured"><div class="popular" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div><div class="icon">⭐</div><h3 data-ar="ساعتان" data-en="2 Hours">ساعتان</h3><div class="price">60 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="ساعتان كاملة من اللعب والمتعة." data-en="Two full hours of play and fun.">ساعتان كاملة من اللعب والمتعة.</p><button onclick="book('two-hours')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
-    <div class="card"><div class="icon">⏱️</div><h3 data-ar="ساعة" data-en="1 Hour">ساعة</h3><div class="price">45 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="ساعة كاملة من اللعب." data-en="One full hour of play.">ساعة كاملة من اللعب.</p><button onclick="book('one-hour')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
-    <div class="card"><div class="icon">➕</div><h3 data-ar="تجديد ساعة" data-en="Hour Extension">تجديد ساعة</h3><div class="price">20 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="أضف ساعة إضافية لوقت اللعب." data-en="Add an extra hour to your play time.">أضف ساعة إضافية لوقت اللعب.</p><button onclick="book('extension')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
+    <div class="card"><div class="icon">♾️</div><h3 data-ar="وقت مفتوح" data-en="Open Time">وقت مفتوح</h3><div class="price">75 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="استمتع بوقتك بدون تحديد مدة." data-en="Enjoy your time with no time limit.">استمتع بوقتك بدون تحديد مدة.</p><button type="button" onclick="openBooking('open')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
+    <div class="card featured"><div class="popular" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div><div class="icon">⭐</div><h3 data-ar="ساعتان" data-en="2 Hours">ساعتان</h3><div class="price">60 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="ساعتان كاملة من اللعب والمتعة." data-en="Two full hours of play and fun.">ساعتان كاملة من اللعب والمتعة.</p><button type="button" onclick="openBooking('two-hours')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
+    <div class="card"><div class="icon">⏱️</div><h3 data-ar="ساعة" data-en="1 Hour">ساعة</h3><div class="price">45 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="ساعة كاملة من اللعب." data-en="One full hour of play.">ساعة كاملة من اللعب.</p><button type="button" onclick="openBooking('one-hour')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
+    <div class="card"><div class="icon">➕</div><h3 data-ar="تجديد ساعة" data-en="Hour Extension">تجديد ساعة</h3><div class="price">20 <small data-ar="ريال" data-en="SAR">ريال</small></div><p data-ar="أضف ساعة إضافية لوقت اللعب." data-en="Add an extra hour to your play time.">أضف ساعة إضافية لوقت اللعب.</p><button type="button" onclick="openBooking('extension')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div>
   </div>
 </section>
 
 <section class="section offers" id="offers">
   <div class="head"><span class="label" data-ar="العروض والباقات" data-en="Offers & Packages">العروض والباقات</span><h2 data-ar="اختار اللي يناسبك" data-en="Choose what suits you">اختار اللي يناسبك</h2><p data-ar="تجارب متنوعة بأسعار واضحة، وكل باقة لها أجواؤها." data-en="Different experiences with clear prices, each with its own atmosphere.">تجارب متنوعة بأسعار واضحة، وكل باقة لها أجواؤها.</p></div>
   <div class="offer-grid">
-    <article class="offer-card"><img src="assets/images/yellow-zone-08.jpg" alt="أجواء الألعاب في Yellow Zone"><div class="offer-body"><span data-ar="لعب ومرح" data-en="Play & Fun">لعب ومرح</span><h3 data-ar="وقت مفتوح" data-en="Open Time">وقت مفتوح</h3><strong data-ar="75 ريال" data-en="75 SAR">75 ريال</strong><p data-ar="استمتع بوقتك بدون تحديد مدة." data-en="Enjoy your time with no time limit.">استمتع بوقتك بدون تحديد مدة.</p><button onclick="book('open')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
-    <article class="offer-card featured-offer"><img src="assets/images/yellow-zone-04.jpg" alt="فعالية داخل Yellow Zone"><div class="offer-body"><span data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</span><h3 data-ar="ساعتان" data-en="2 Hours">ساعتان</h3><strong data-ar="60 ريال" data-en="60 SAR">60 ريال</strong><p data-ar="ساعتان كاملة من اللعب والمتعة." data-en="Two full hours of play and fun.">ساعتان كاملة من اللعب والمتعة.</p><button onclick="book('two-hours')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
-    <article class="offer-card"><img src="assets/images/yellow-zone-16.png" alt="فعالية وحفلة في Yellow Zone"><div class="offer-body"><span data-ar="للمجموعات" data-en="For Groups">للمجموعات</span><h3 data-ar="رحلة مدرسية" data-en="School Trip">رحلة مدرسية</h3><strong data-ar="60 ريال للطفل" data-en="60 SAR per child">60 ريال للطفل</strong><p data-ar="تشمل وجبة مجانية." data-en="Includes a complimentary meal.">تشمل وجبة مجانية.</p><button onclick="book('school-trip')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
+    <article class="offer-card"><img src="assets/images/yellow-zone-08.jpg" alt="أجواء الألعاب في Yellow Zone"><div class="offer-body"><span data-ar="لعب ومرح" data-en="Play & Fun">لعب ومرح</span><h3 data-ar="وقت مفتوح" data-en="Open Time">وقت مفتوح</h3><strong data-ar="75 ريال" data-en="75 SAR">75 ريال</strong><p data-ar="استمتع بوقتك بدون تحديد مدة." data-en="Enjoy your time with no time limit.">استمتع بوقتك بدون تحديد مدة.</p><button type="button" onclick="openBooking('open')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
+    <article class="offer-card featured-offer"><img src="assets/images/yellow-zone-04.jpg" alt="أجواء اللعب في Yellow Zone"><div class="offer-body"><span data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</span><h3 data-ar="ساعتان" data-en="2 Hours">ساعتان</h3><strong data-ar="60 ريال" data-en="60 SAR">60 ريال</strong><p data-ar="ساعتان كاملة من اللعب والمتعة." data-en="Two full hours of play and fun.">ساعتان كاملة من اللعب والمتعة.</p><button type="button" onclick="openBooking('two-hours')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
+    <article class="offer-card"><img src="assets/images/yellow-zone-15.png" alt="رحلة مدرسية في Yellow Zone"><div class="offer-body"><span data-ar="للمجموعات" data-en="For Groups">للمجموعات</span><h3 data-ar="رحلة مدرسية" data-en="School Trip">رحلة مدرسية</h3><strong data-ar="60 ريال للطفل" data-en="60 SAR per child">60 ريال للطفل</strong><p data-ar="تشمل وجبة مجانية." data-en="Includes a complimentary meal.">تشمل وجبة مجانية.</p><button type="button" onclick="openBooking('school-trip')" data-ar="احجز الآن" data-en="Book Now">احجز الآن</button></div></article>
+  </div>
+  <div class="ads-wrap" id="adsWrap">
+    <div class="head" style="margin-top:65px;margin-bottom:28px"><span class="label" data-ar="إعلانات وفعاليات" data-en="Announcements & Events">إعلانات وفعاليات</span><h2 data-ar="آخر الفعاليات والعروض" data-en="Latest events & announcements">آخر الفعاليات والعروض</h2><p data-ar="أي فعالية أو حفلة ينزلها فريق Yellow Zone تظهر هنا، ومعها زر حجز مباشر إذا كانت فعالية قابلة للحجز." data-en="Events and parties posted by Yellow Zone appear here, with a direct booking button when the announcement is bookable.">أي فعالية أو حفلة ينزلها فريق Yellow Zone تظهر هنا، ومعها زر حجز مباشر إذا كانت فعالية قابلة للحجز.</p></div>
+    <div class="ads-grid" id="adsGrid"></div><div class="empty-ads" id="emptyAds" data-ar="لا توجد إعلانات أو فعاليات حالياً." data-en="There are no announcements or events right now.">لا توجد إعلانات أو فعاليات حالياً.</div>
   </div>
 </section>
 
 <section class="section split" id="trips">
   <div class="photo"><img src="assets/images/yellow-zone-15.png" alt="رحلات مدرسية في Yellow Zone"><div class="photo-tag" data-ar="🏫 رحلات مدرسية" data-en="🏫 School Trips">🏫 رحلات مدرسية</div></div>
-  <div><span class="label" data-ar="للمدارس والمجموعات" data-en="For Schools & Groups">للمدارس والمجموعات</span><h2 data-ar="خلّي الرحلة المدرسية يوم ما يتنسي" data-en="Make the school trip a day to remember">خلّي الرحلة المدرسية يوم ما يتنسي</h2><p data-ar="تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية." data-en="An experience full of play, fun, and activities suitable for students and school groups.">تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية.</p><div class="trip-price">60 <small data-ar="ريال للطفل" data-en="SAR per child">ريال للطفل</small></div><p data-ar="✓ تشمل وجبة مجانية" data-en="✓ Includes a complimentary meal">✓ تشمل وجبة مجانية</p><a class="btn primary" href="#booking" onclick="book('school-trip')" data-ar="احجز رحلة مدرسية" data-en="Book a School Trip">احجز رحلة مدرسية</a></div>
+  <div><span class="label" data-ar="للمدارس والمجموعات" data-en="For Schools & Groups">للمدارس والمجموعات</span><h2 data-ar="خلّي الرحلة المدرسية يوم ما يتنسي" data-en="Make the school trip a day to remember">خلّي الرحلة المدرسية يوم ما يتنسي</h2><p data-ar="تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية." data-en="An experience full of play, fun, and activities suitable for students and school groups.">تجربة مليانة لعب ومرح وأنشطة مناسبة للطلاب والمجموعات المدرسية.</p><div class="trip-price">60 <small data-ar="ريال للطفل" data-en="SAR per child">ريال للطفل</small></div><p data-ar="✓ تشمل وجبة مجانية" data-en="✓ Includes a complimentary meal">✓ تشمل وجبة مجانية</p><button class="btn primary" type="button" onclick="openBooking('school-trip')" data-ar="احجز رحلة مدرسية" data-en="Book a School Trip">احجز رحلة مدرسية</button></div>
 </section>
 
 <section class="section birthdays" id="birthdays">
   <div class="head"><span class="label" data-ar="أعياد الميلاد والحفلات" data-en="Birthdays & Parties">أعياد الميلاد والحفلات</span><h2 data-ar="يوم ميلادك يستاهل احتفال كبير" data-en="Your birthday deserves a big celebration">يوم ميلادك يستاهل احتفال كبير</h2><p data-ar="اختر الباقة المناسبة وأضف الإضافات اللي تناسب حفلتك." data-en="Choose the package that suits you and add the extras for your party.">اختر الباقة المناسبة وأضف الإضافات اللي تناسب حفلتك.</p></div>
   <div class="birthday-grid">
-    <div class="birthday"><div class="kids">10</div><h3 data-ar="10 أطفال" data-en="10 Kids">10 أطفال</h3><div class="birthday-price" data-ar="1350 ريال" data-en="1350 SAR">1350 ريال</div><button onclick="book('birthday-10')" data-ar="احجز الباقة" data-en="Book Package">احجز الباقة</button></div>
-    <div class="birthday main"><div class="kids">15</div><h3 data-ar="15 طفل" data-en="15 Kids">15 طفل</h3><div class="birthday-price" data-ar="1800 ريال" data-en="1800 SAR">1800 ريال</div><button onclick="book('birthday-15')" data-ar="احجز الباقة" data-en="Book Package">احجز الباقة</button></div>
+    <div class="birthday"><div class="kids">10</div><h3 data-ar="10 أطفال" data-en="10 Kids">10 أطفال</h3><div class="birthday-price" data-ar="1350 ريال" data-en="1350 SAR">1350 ريال</div><button type="button" onclick="openBooking('birthday-10')" data-ar="احجز الباقة" data-en="Book Package">احجز الباقة</button></div>
+    <div class="birthday main"><div class="kids">15</div><h3 data-ar="15 طفل" data-en="15 Kids">15 طفل</h3><div class="birthday-price" data-ar="1800 ريال" data-en="1800 SAR">1800 ريال</div><button type="button" onclick="openBooking('birthday-15')" data-ar="احجز الباقة" data-en="Book Package">احجز الباقة</button></div>
     <div class="birthday extras"><h3 data-ar="إضافات الحفلة" data-en="Party Extras">إضافات الحفلة</h3><div class="extra"><span data-ar="طفل إضافي" data-en="Additional Child">طفل إضافي</span><strong data-ar="90 ريال" data-en="90 SAR">90 ريال</strong></div><div class="extra"><span data-ar="عرض الساحر" data-en="Magician Show">عرض الساحر</span><strong data-ar="300 ريال" data-en="300 SAR">300 ريال</strong></div><div class="extra"><span data-ar="رسم على الوجه" data-en="Face Painting">رسم على الوجه</span><strong data-ar="10 ريال" data-en="10 SAR">10 ريال</strong></div></div>
   </div>
 </section>
@@ -103,143 +108,149 @@ footer{background:#08172e;color:#fff;text-align:center;padding:45px 7%}.flogo{fo
 <section class="section" id="gallery">
   <div class="head"><span class="label" data-ar="المعرض" data-en="Gallery">المعرض</span><h2 data-ar="شوف أجواء Yellow Zone" data-en="See the Yellow Zone atmosphere">شوف أجواء Yellow Zone</h2><p data-ar="صور حقيقية من المكان والألعاب والفعاليات والحفلات." data-en="Real photos from the venue, games, activities, and parties.">صور حقيقية من المكان والألعاب والفعاليات والحفلات.</p></div>
   <div class="gallery-grid">
-    <div class="g"><img src="assets/images/yellow-zone-07.jpg" alt="منطقة اللعب"><span data-ar="أجواء المكان" data-en="Venue Atmosphere">أجواء المكان</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-01.jpg" alt="الألعاب"><span data-ar="اللعب والمرح" data-en="Play & Fun">اللعب والمرح</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-11.jpg" alt="فعالية عيد ميلاد"><span data-ar="أعياد الميلاد" data-en="Birthdays">أعياد الميلاد</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-03.jpg" alt="منطقة الألعاب"><span data-ar="منطقة الألعاب" data-en="Play Area">منطقة الألعاب</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-04.jpg" alt="الفعاليات"><span data-ar="الفعاليات" data-en="Activities">الفعاليات</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-02.jpg" alt="أجواء Yellow Zone"><span data-ar="أجواء Yellow Zone" data-en="Yellow Zone Atmosphere">أجواء Yellow Zone</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-06.jpg" alt="تفاصيل المكان"><span data-ar="تفاصيل المكان" data-en="Venue Details">تفاصيل المكان</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-10.jpg" alt="منطقة اللعب"><span data-ar="منطقة اللعب" data-en="Play Zone">منطقة اللعب</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-14.png" alt="فعالية داخل المركز"><span data-ar="فعاليات المركز" data-en="Center Activities">فعاليات المركز</span></div>
-    <div class="g"><img src="assets/images/yellow-zone-15.png" alt="رحلة مدرسية"><span data-ar="رحلات مدرسية" data-en="School Trips">رحلات مدرسية</span></div>
+    <div class="g"><img src="assets/images/yellow-zone-07.jpg" alt="منطقة اللعب"><span data-ar="أجواء المكان" data-en="Venue Atmosphere">أجواء المكان</span></div><div class="g"><img src="assets/images/yellow-zone-01.jpg" alt="الألعاب"><span data-ar="اللعب والمرح" data-en="Play & Fun">اللعب والمرح</span></div><div class="g"><img src="assets/images/yellow-zone-11.jpg" alt="فعالية عيد ميلاد"><span data-ar="أعياد الميلاد" data-en="Birthdays">أعياد الميلاد</span></div><div class="g"><img src="assets/images/yellow-zone-03.jpg" alt="منطقة الألعاب"><span data-ar="منطقة الألعاب" data-en="Play Area">منطقة الألعاب</span></div><div class="g"><img src="assets/images/yellow-zone-04.jpg" alt="الفعاليات"><span data-ar="الفعاليات" data-en="Activities">الفعاليات</span></div><div class="g"><img src="assets/images/yellow-zone-02.jpg" alt="أجواء Yellow Zone"><span data-ar="أجواء Yellow Zone" data-en="Yellow Zone Atmosphere">أجواء Yellow Zone</span></div><div class="g"><img src="assets/images/yellow-zone-06.jpg" alt="تفاصيل المكان"><span data-ar="تفاصيل المكان" data-en="Venue Details">تفاصيل المكان</span></div><div class="g"><img src="assets/images/yellow-zone-10.jpg" alt="منطقة اللعب"><span data-ar="منطقة اللعب" data-en="Play Zone">منطقة اللعب</span></div><div class="g"><img src="assets/images/yellow-zone-14.png" alt="فعالية داخل المركز"><span data-ar="فعاليات المركز" data-en="Center Activities">فعاليات المركز</span></div><div class="g"><img src="assets/images/yellow-zone-15.png" alt="رحلة مدرسية"><span data-ar="رحلات مدرسية" data-en="School Trips">رحلات مدرسية</span></div>
   </div>
 </section>
 
 <section class="section video-section">
   <div class="head dark"><span class="label" data-ar="الفيديوهات" data-en="Videos">الفيديوهات</span><h2 data-ar="شوف المتعة بنفسك" data-en="See the fun for yourself">شوف المتعة بنفسك</h2><p data-ar="لقطات من أجواء المكان والفعاليات." data-en="Clips from the venue and activities.">لقطات من أجواء المكان والفعاليات.</p></div>
-  <div class="videos">
-    <div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-02.mp4"></video><p data-ar="لقطات من الفعاليات" data-en="Activity moments">لقطات من الفعاليات</p></div>
-    <div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-04.mp4"></video><p data-ar="اللعب والمرح" data-en="Play & fun">اللعب والمرح</p></div>
-    <div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-05.mp4"></video><p data-ar="فعالية للأطفال" data-en="Kids activity">فعالية للأطفال</p></div>
-  </div>
+  <div class="videos"><div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-02.mp4"></video><p data-ar="لقطات من الفعاليات" data-en="Activity moments">لقطات من الفعاليات</p></div><div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-04.mp4"></video><p data-ar="اللعب والمرح" data-en="Play & fun">اللعب والمرح</p></div><div class="video"><video controls playsinline preload="metadata" src="assets/videos/yellow-zone-video-05.mp4"></video><p data-ar="فعالية للأطفال" data-en="Kids activity">فعالية للأطفال</p></div></div>
 </section>
 
 <section class="section booking" id="booking">
   <div class="booking-box">
-    <div class="booking-info"><span class="label" data-ar="الحجز" data-en="Booking">الحجز</span><h2 data-ar="احجز تجربتك" data-en="Book your experience">احجز تجربتك</h2><p data-ar="عبّي بياناتك، وسيتم إرسال طلب الحجز للفريق لتأكيده." data-en="Fill in your details and your booking request will be sent to our team for confirmation.">عبّي بياناتك، وسيتم إرسال طلب الحجز للفريق لتأكيده.</p><div class="contact"><div>📞 <a href="tel:+966554160210">+966 55 416 0210</a></div><div>📍 <a target="_blank" href="https://maps.app.goo.gl/ALGmWMEhsNHwmmBX8" data-ar="موقع Yellow Zone" data-en="Yellow Zone Location">موقع Yellow Zone</a></div></div></div>
-    <form id="bookingForm">
-      <label data-ar="الاسم" data-en="Name">الاسم<input id="name" required placeholder="اكتب اسمك" data-ar-placeholder="اكتب اسمك" data-en-placeholder="Enter your name"></label>
-      <label data-ar="رقم الجوال" data-en="Phone Number">رقم الجوال<input id="phone" required type="tel" placeholder="05xxxxxxxx" data-ar-placeholder="05xxxxxxxx" data-en-placeholder="05xxxxxxxx"></label>
-      <label data-ar="عدد الأشخاص" data-en="Number of People">عدد الأشخاص<input id="guests" required min="1" type="number" placeholder="مثلاً 5" data-ar-placeholder="مثلاً 5" data-en-placeholder="e.g. 5"></label>
-      <label data-ar="التاريخ" data-en="Date">التاريخ<input id="date" required type="date"></label>
-      <label data-ar="الوقت" data-en="Time">الوقت<input id="time" required type="time"></label>
-      <label data-ar="الخدمة" data-en="Service">الخدمة<select id="service"><option value="open" data-ar="وقت مفتوح" data-en="Open Time">وقت مفتوح</option><option value="two-hours" data-ar="ساعتان" data-en="2 Hours">ساعتان</option><option value="one-hour" data-ar="ساعة" data-en="1 Hour">ساعة</option><option value="extension" data-ar="تجديد ساعة" data-en="Hour Extension">تجديد ساعة</option><option value="school-trip" data-ar="رحلة مدرسية" data-en="School Trip">رحلة مدرسية</option><option value="birthday-10" data-ar="عيد ميلاد - 10 أطفال" data-en="Birthday - 10 Kids">عيد ميلاد - 10 أطفال</option><option value="birthday-15" data-ar="عيد ميلاد - 15 طفل" data-en="Birthday - 15 Kids">عيد ميلاد - 15 طفل</option></select></label>
-      <label class="full" data-ar="ملاحظات" data-en="Notes">ملاحظات<textarea id="notes" placeholder="أي ملاحظات إضافية..." data-ar-placeholder="أي ملاحظات إضافية..." data-en-placeholder="Any additional notes..."></textarea></label>
-      <button class="submit" type="submit" data-ar="إرسال طلب الحجز" data-en="Send Booking Request">إرسال طلب الحجز</button>
-    </form>
+    <div class="booking-info"><span class="label" data-ar="الحجز" data-en="Booking">الحجز</span><h2 data-ar="احجز تجربتك بسهولة" data-en="Book your experience easily">احجز تجربتك بسهولة</h2><p data-ar="اختار الباقة أو الفعالية، وبعدها حدد التاريخ والوقت واكتب بياناتك. طلبك يوصل للفريق مباشرة للتأكيد." data-en="Choose a package or event, then select your date and time and enter your details. Your request goes directly to our team for confirmation.">اختار الباقة أو الفعالية، وبعدها حدد التاريخ والوقت واكتب بياناتك. طلبك يوصل للفريق مباشرة للتأكيد.</p><div class="contact"><div>📞 <a href="tel:+966554160210">+966 55 416 0210</a></div><div>📍 <a target="_blank" rel="noopener" href="https://maps.app.goo.gl/ALGmWMEhsNHwmmBX8" data-ar="موقع Yellow Zone" data-en="Yellow Zone Location">موقع Yellow Zone</a></div></div><div class="booking-start"><button class="btn primary" type="button" onclick="openBooking('open')" data-ar="ابدأ الحجز" data-en="Start Booking">ابدأ الحجز</button></div></div>
+    <div class="booking-preview"><strong data-ar="نظام حجز مرتب" data-en="A clean booking system">نظام حجز مرتب</strong><span data-ar="اختيار الخدمة → اختيار التاريخ → اختيار الوقت → بيانات العميل → إرسال الطلب" data-en="Choose service → choose date → choose time → customer details → send request">اختيار الخدمة → اختيار التاريخ → اختيار الوقت → بيانات العميل → إرسال الطلب</span><p class="form-note" data-ar="لا يوجد دفع إلكتروني حالياً. يتم تأكيد الحجز من فريق Yellow Zone بعد استلام الطلب." data-en="Online payment is not available yet. The Yellow Zone team confirms your booking after receiving the request.">لا يوجد دفع إلكتروني حالياً. يتم تأكيد الحجز من فريق Yellow Zone بعد استلام الطلب.</p></div>
   </div>
 </section>
 </main>
 
-<footer><div class="flogo"><b>YELLOW</b> <span>ZONE</span></div><p data-ar="المتعة تبدأ من هنا." data-en="The fun starts here.">المتعة تبدأ من هنا.</p><div class="socials"><a target="_blank" href="https://www.instagram.com/yellow.zoooon24/">Instagram</a><a target="_blank" href="https://www.tiktok.com/@yellowzooone24">TikTok</a><a target="_blank" href="https://www.snapchat.com/add/yellowzoooone24">Snapchat</a></div></footer>
+<footer><div class="flogo"><b>YELLOW</b> <span>ZONE</span></div><p data-ar="المتعة تبدأ من هنا." data-en="The fun starts here.">المتعة تبدأ من هنا.</p><div class="socials"><a target="_blank" rel="noopener" href="https://www.instagram.com/yellow.zoooon24/">Instagram</a><a target="_blank" rel="noopener" href="https://www.tiktok.com/@yellowzooone24">TikTok</a><a target="_blank" rel="noopener" href="https://www.snapchat.com/add/yellowzoooone24">Snapchat</a></div></footer>
+
+<div class="modal" id="bookingModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-top"><div><span class="label" data-ar="حجز Yellow Zone" data-en="Yellow Zone Booking">حجز Yellow Zone</span><h3 id="modalTitle" data-ar="أكمل بيانات الحجز" data-en="Complete your booking">أكمل بيانات الحجز</h3></div><button class="close" id="closeModal" type="button" aria-label="Close">×</button></div>
+    <div class="selected-service"><div><b id="selectedServiceName">وقت مفتوح</b><span id="selectedServiceMeta">75 ريال</span></div><button class="btn secondary" type="button" onclick="closeBooking()" data-ar="تغيير الخدمة" data-en="Change service">تغيير الخدمة</button></div>
+    <form class="modal-form" id="bookingForm">
+      <label data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل<input id="name" required autocomplete="name" placeholder="اكتب اسمك" data-ar-placeholder="اكتب اسمك" data-en-placeholder="Enter your name"></label>
+      <label data-ar="رقم الجوال" data-en="Phone Number">رقم الجوال<input id="phone" required type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" data-ar-placeholder="05xxxxxxxx" data-en-placeholder="05xxxxxxxx"></label>
+      <label data-ar="عدد الأشخاص" data-en="Number of People">عدد الأشخاص<input id="guests" required min="1" step="1" type="number" inputmode="numeric" placeholder="مثلاً 5" data-ar-placeholder="مثلاً 5" data-en-placeholder="e.g. 5"></label>
+      <label data-ar="التاريخ" data-en="Date">التاريخ<input id="date" required type="date"></label>
+      <label data-ar="الوقت" data-en="Time">الوقت<input id="time" required type="time"></label>
+      <label data-ar="الخدمة" data-en="Service">الخدمة<select id="service" required></select></label>
+      <label class="full" data-ar="ملاحظات" data-en="Notes">ملاحظات<textarea id="notes" placeholder="أي ملاحظات إضافية..." data-ar-placeholder="أي ملاحظات إضافية..." data-en-placeholder="Any additional notes..."></textarea></label>
+      <button class="submit" type="submit" data-ar="إرسال طلب الحجز" data-en="Send Booking Request">إرسال طلب الحجز</button>
+    </form>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
+'use strict';
 const SUPABASE_URL='https://wmqjlbrgdjgfjwopekup.supabase.co';
 const SUPABASE_KEY='sb_publishable_N3BSrFZfEidi-nN8hYbWFg_WbjMMsDn';
-const today=new Date().toISOString().split('T')[0];
 const html=document.documentElement;
-const langButton=document.querySelector('.lang');
-let currentLang=localStorage.getItem('yellow-zone-language') || 'ar';
-const serviceNames={
-  open:{ar:'وقت مفتوح',en:'Open Time'},
-  'two-hours':{ar:'ساعتان',en:'2 Hours'},
-  'one-hour':{ar:'ساعة',en:'1 Hour'},
-  extension:{ar:'تجديد ساعة',en:'Hour Extension'},
-  'school-trip':{ar:'رحلة مدرسية',en:'School Trip'},
-  'birthday-10':{ar:'عيد ميلاد - 10 أطفال',en:'Birthday - 10 Kids'},
-  'birthday-15':{ar:'عيد ميلاد - 15 طفل',en:'Birthday - 15 Kids'}
+const langButton=document.getElementById('langButton');
+const modal=document.getElementById('bookingModal');
+const serviceSelect=document.getElementById('service');
+const dateInput=document.getElementById('date');
+const timeInput=document.getElementById('time');
+const form=document.getElementById('bookingForm');
+let currentLang=localStorage.getItem('yellow-zone-language')||'ar';
+let selectedKey='open';
+let dynamicEvents={};
+const services={
+ open:{ar:'وقت مفتوح',en:'Open Time',price:'75 SAR'},
+ 'two-hours':{ar:'ساعتان',en:'2 Hours',price:'60 SAR'},
+ 'one-hour':{ar:'ساعة',en:'1 Hour',price:'45 SAR'},
+ extension:{ar:'تجديد ساعة',en:'Hour Extension',price:'20 SAR'},
+ 'school-trip':{ar:'رحلة مدرسية',en:'School Trip',price:'60 SAR / child'},
+ 'birthday-10':{ar:'عيد ميلاد - 10 أطفال',en:'Birthday - 10 Kids',price:'1350 SAR'},
+ 'birthday-15':{ar:'عيد ميلاد - 15 طفل',en:'Birthday - 15 Kids',price:'1800 SAR'}
 };
-
-document.getElementById('date').min=today;
+const today=new Date();
+today.setHours(0,0,0,0);
+const isoToday=()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)};
+dateInput.min=isoToday();
 
 function applyLanguage(language){
-  currentLang=language;
-  html.lang=language;
-  html.dir=language==='ar'?'rtl':'ltr';
-  document.title=language==='ar'?'Yellow Zone | المنطقة الصفراء':'Yellow Zone | Entertainment Center';
-  document.querySelectorAll('[data-ar][data-en]').forEach(el=>{
-    el.textContent=el.getAttribute('data-'+language);
-  });
-  document.querySelectorAll('[data-ar-placeholder][data-en-placeholder]').forEach(el=>{
-    el.placeholder=el.getAttribute('data-'+language+'-placeholder');
-  });
-  document.querySelectorAll('img[data-ar-alt][data-en-alt]').forEach(el=>{
-    el.alt=el.getAttribute('data-'+language+'-alt');
-  });
-  document.querySelectorAll('#service option[data-ar][data-en]').forEach(option=>{
-    option.textContent=option.getAttribute('data-'+language);
-  });
-  langButton.textContent=language==='ar'?'English':'العربية';
-  localStorage.setItem('yellow-zone-language',language);
+ currentLang=language; html.lang=language; html.dir=language==='ar'?'rtl':'ltr';
+ document.title=language==='ar'?'Yellow Zone | المنطقة الصفراء':'Yellow Zone | Entertainment Center';
+ document.querySelectorAll('[data-ar][data-en]').forEach(el=>{el.textContent=el.getAttribute('data-'+language)});
+ document.querySelectorAll('[data-ar-placeholder][data-en-placeholder]').forEach(el=>{el.placeholder=el.getAttribute('data-'+language+'-placeholder')});
+ document.querySelectorAll('img[data-ar-alt][data-en-alt]').forEach(el=>{el.alt=el.getAttribute('data-'+language+'-alt')});
+ langButton.textContent=language==='ar'?'English':'العربية';
+ localStorage.setItem('yellow-zone-language',language);
+ renderServiceOptions();
+ if(modal.classList.contains('show')) updateSelectedService();
+ renderAds();
 }
+function toggleLang(){applyLanguage(currentLang==='ar'?'en':'ar')}
+langButton.addEventListener('click',toggleLang);
 
-function toggleLang(){
-  applyLanguage(currentLang==='ar'?'en':'ar');
+authorizeServiceOptions();
+function authorizeServiceOptions(){renderServiceOptions()}
+function renderServiceOptions(){
+ const keys=Object.keys(services).concat(Object.keys(dynamicEvents));
+ serviceSelect.innerHTML='';
+ keys.forEach(key=>{
+  const s=services[key]||dynamicEvents[key];
+  const o=document.createElement('option');o.value=key;o.textContent=s[currentLang]||s.ar;o.dataset.dynamic=dynamicEvents[key]?'1':'0';serviceSelect.appendChild(o);
+ });
+ if(!services[selectedKey]&&!dynamicEvents[selectedKey])selectedKey='open';
+ serviceSelect.value=selectedKey;
 }
-
-function toast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),4200);
+function updateSelectedService(){
+ const s=services[selectedKey]||dynamicEvents[selectedKey]||services.open;
+ document.getElementById('selectedServiceName').textContent=s[currentLang]||s.ar;
+ document.getElementById('selectedServiceMeta').textContent=s.price||'';
+ serviceSelect.value=selectedKey;
 }
-
-function book(service){
-  document.getElementById('service').value=service;
-  document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+serviceSelect.addEventListener('change',()=>{selectedKey=serviceSelect.value;updateSelectedService()});
+function openBooking(key='open', custom={}){
+ selectedKey=key;
+ renderServiceOptions();
+ if(custom.title){
+   dynamicEvents[key]={ar:custom.title,en:custom.title,price:custom.price||''};
+   renderServiceOptions();
+ }
+ serviceSelect.value=selectedKey;updateSelectedService();
+ modal.classList.add('show');modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
+ setTimeout(()=>document.getElementById('name').focus(),120);
 }
+function closeBooking(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open')}
+document.getElementById('closeModal').addEventListener('click',closeBooking);
+modal.addEventListener('click',e=>{if(e.target===modal)closeBooking()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))closeBooking()});
 
+dateInput.addEventListener('change',()=>{if(dateInput.value<isoToday())dateInput.value=isoToday()});
+function toast(message,type='success'){const t=document.getElementById('toast');t.textContent=message;t.className='toast show '+type;clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.className='toast',4500)}
 async function sendBooking(data){
-  const r=await fetch(SUPABASE_URL+'/rest/v1/bookings',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Prefer':'return=minimal'},
-    body:JSON.stringify(data)
-  });
-  if(!r.ok) throw new Error(await r.text());
+ const r=await fetch(SUPABASE_URL+'/rest/v1/bookings',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Prefer':'return=minimal'},body:JSON.stringify(data)});
+ if(!r.ok)throw new Error(await r.text());
 }
-
-document.getElementById('bookingForm').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const btn=e.target.querySelector('.submit');
-  btn.disabled=true;
-  btn.textContent=currentLang==='ar'?'جاري إرسال الطلب...':'Sending request...';
-  const name=document.getElementById('name').value.trim();
-  const phone=document.getElementById('phone').value.trim();
-  const guests=Number(document.getElementById('guests').value);
-  const date=document.getElementById('date').value;
-  const time=document.getElementById('time').value;
-  const serviceKey=document.getElementById('service').value;
-  const notes=document.getElementById('notes').value.trim();
-  const service=serviceNames[serviceKey]?.[currentLang] || serviceNames[serviceKey]?.ar || serviceKey;
-  const data={booking_code:'YZ-'+Date.now(),customer_name:name,customer_phone:phone,booking_date:date,booking_time:time,guests,offer_name_snapshot:service,service_type:service,notes,status:'new'};
-  try{
-    await sendBooking(data);
-    toast(currentLang==='ar'?'تم إرسال طلب الحجز بنجاح. سيتم التواصل معك لتأكيد الحجز.':'Your booking request was sent successfully. We will contact you to confirm it.');
-    e.target.reset();
-    document.getElementById('date').min=today;
-    applyLanguage(currentLang);
-  }catch(err){
-    console.error(err);
-    toast(currentLang==='ar'?'تعذر إرسال الحجز حاليًا. تواصل معنا على +966 55 416 0210.':'The booking could not be sent right now. Please contact us at +966 55 416 0210.');
-  }finally{
-    btn.disabled=false;
-    btn.textContent=btn.getAttribute('data-'+currentLang);
-  }
+form.addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(!form.reportValidity())return;
+ const btn=form.querySelector('.submit');btn.disabled=true;btn.textContent=currentLang==='ar'?'جاري إرسال الطلب...':'Sending request...';
+ const name=document.getElementById('name').value.trim();const phone=document.getElementById('phone').value.trim();const guests=Number(document.getElementById('guests').value);const date=dateInput.value;const time=timeInput.value;const notes=document.getElementById('notes').value.trim();const s=services[selectedKey]||dynamicEvents[selectedKey]||services.open;const service=s[currentLang]||s.ar;
+ const data={booking_code:'YZ-'+Date.now(),customer_name:name,customer_phone:phone,booking_date:date,booking_time:time,guests,offer_name_snapshot:service,service_type:service,notes,status:'new'};
+ try{await sendBooking(data);toast(currentLang==='ar'?'تم إرسال طلب الحجز بنجاح. سيتم التواصل معك لتأكيد الحجز.':'Your booking request was sent successfully. We will contact you to confirm it.','success');form.reset();dateInput.min=isoToday();selectedKey='open';renderServiceOptions();updateSelectedService();setTimeout(closeBooking,900)}catch(err){console.error(err);toast(currentLang==='ar'?'تعذر إرسال الحجز حالياً. تواصل معنا على +966 55 416 0210.':'The booking could not be sent right now. Please contact us on +966 55 416 0210.','error')}finally{btn.disabled=false;btn.textContent=btn.getAttribute('data-'+currentLang)}
 });
 
-applyLanguage(currentLang);
+function isEventAd(ad){const text=((ad.title_ar||ad.title||'')+' '+(ad.body_ar||ad.text||'')+' '+(ad.title_en||'')+' '+(ad.body_en||'')).toLowerCase();return /فعالية|حفلة|حفل|event|party|activity/.test(text)}
+function escapeHTML(v=''){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function adTitle(ad){return escapeHTML(currentLang==='ar'?(ad.title_ar||ad.title||'Yellow Zone'):(ad.title_en||ad.title||'Yellow Zone'))}
+function adBody(ad){return escapeHTML(currentLang==='ar'?(ad.body_ar||ad.text||''):(ad.body_en||ad.text||''))}
+function renderAds(){
+ const grid=document.getElementById('adsGrid');const empty=document.getElementById('emptyAds');grid.innerHTML='';
+ if(!window.activeAds||!window.activeAds.length){empty.style.display='block';return} empty.style.display='none';
+ window.activeAds.forEach(ad=>{const event=isEventAd(ad);const key=event?'event-'+ad.id:'';if(event)dynamicEvents[key]={ar:ad.title_ar||ad.title||'فعالية',en:ad.title_en||ad.title||'Event',price:ad.price?String(ad.price)+' SAR':''};const img=ad.image_url?`<img src="${escapeHTML(ad.image_url)}" alt="${adTitle(ad)}">`:'';const card=document.createElement('article');card.className='ad-card';card.innerHTML=`${img}<div class="ad-body"><h3>${adTitle(ad)}</h3><p>${adBody(ad)}</p><div class="ad-meta">${event?`<span class="event-badge">${currentLang==='ar'?'قابل للحجز':'Bookable Event'}</span><button type="button" data-event-key="${escapeHTML(key)}">${currentLang==='ar'?(String(ad.title_ar||ad.title||'الفعالية').includes('حف')?'احجز الحفلة':'احجز الفعالية'):'Book Event'}</button>`:''}</div></div>`;if(event)card.querySelector('button').addEventListener('click',()=>openBooking(key));grid.appendChild(card)})
+}
+async function loadAds(){
+ try{const r=await fetch(SUPABASE_URL+'/rest/v1/ads?select=id,title,text,image_url,active,title_ar,title_en,body_ar,body_en,target_url,sort_order&active=eq.true&order=sort_order.asc,created_at.desc',{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});if(!r.ok)throw new Error('ads '+r.status);window.activeAds=await r.json();renderAds()}catch(e){console.error(e);window.activeAds=[];renderAds()}
+}
+applyLanguage(currentLang);loadAds();
 </script>
 </body>
 </html>
